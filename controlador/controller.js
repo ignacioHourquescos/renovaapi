@@ -78,9 +78,23 @@ function obtenerStockCritico(req,res){
       }
 
 
+function informacionPedidos(req,res){
+      var sql="select cod_articulo, descrip_arti, UM, cant_stock, precio_vta from articulos a, listas_items i where a.cod_articulo=i.articulo and i.lista_codi='2' and activo='S'"
+      con.query(sql,function(error,resultado,fields){
+            if (error) {
+                  console.log("Hubo un error en la consulta sql", error.message);
+                  return res.status(500).send("Hubo un error en la consulta");
+            }
+            var response=resultado.recordsets[0];
+            res.send(JSON.stringify(response));
+      })
+}
+
+
 module.exports ={
     obtenerListas:obtenerListas,
     obtenerListaDetalle:obtenerListaDetalle,
     obtenerOfertas:obtenerOfertas,
-    obtenerStockCritico:obtenerStockCritico
+    obtenerStockCritico:obtenerStockCritico,
+    informacionPedidos:informacionPedidos
 }

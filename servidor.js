@@ -31,6 +31,7 @@ app.get('/listas', controller.obtenerListas);
 app.get('/listas/:id' ,controller.obtenerListaDetalle);
 app.get('/ofertas',controller.obtenerOfertas);
 app.get('/stock',controller.obtenerStockCritico);
+app.get('/listadoSistemaPedidos', controller.informacionPedidos);
 
 
 
