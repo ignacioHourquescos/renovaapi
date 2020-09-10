@@ -9,9 +9,9 @@ function obtenerListas(req,res){
 function obtenerListaDetalle(req,res){
       var id=req.params.id;
       var sql="select cod_articulo, descrip_arti, precio_vta  from articulos a, listas_items i where a.cod_articulo=i.articulo and i.lista_codi='2' and a.agru_1="+id+"and activo='S' order by cod_articulo ASC";
-      for(var i=0;i<constantes.length;i++){
-            if (constantes[i].codigo==id){
-                  var agrupacion=constantes[i].descripcion;
+      for(var i=0;i<constantes.listas.length;i++){
+            if (constantes.listas[i].codigo==id){
+                  var agrupacion=constantes.listas[i].descripcion;
             }
       }
       con.query(sql,function(error,resultado,fields){
