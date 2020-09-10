@@ -29,7 +29,8 @@ app.use(express.static(path.join(__dirname,"views")));
 //app.get('/faq', function (req, res)         {res.sendFile(path.join(__dirname + '/views/html/faq.html'));})
 app.get('/listas', controller.obtenerListas);
 app.get('/listas/:id' ,controller.obtenerListaDetalle);
-app.get('/ofertas',controller.obtenerOfertas);
+app.get('/ofertasFram',controller.obtenerOfertasFram);
+app.get('/ofertasMensuales',controller.obtenerOfertasMensuales);
 app.get('/stock',controller.obtenerStockCritico);
 app.get('/listadoSistemaPedidos', controller.informacionPedidos);
 

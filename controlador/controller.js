@@ -30,7 +30,7 @@ function obtenerListaDetalle(req,res){
 }
 
 
-function obtenerOfertas(req,res){
+function obtenerOfertasFram(req,res){
       var sql="select cod_articulo, descrip_arti, precio_vta, web_imagen  from articulos a, listas_items i where a.cod_articulo=i.articulo and i.lista_codi='2' and a.agru_1='23' and activo='S'";
       con.query(sql,function(error,resultado,fields){
             if (error) {
@@ -40,6 +40,18 @@ function obtenerOfertas(req,res){
             res.send(JSON.stringify(resultado));
         });
 }
+
+function obtenerOfertasMensuales(req,res){
+      var sql="select cod_articulo, descrip_arti, precio_vta, web_imagen  from articulos a, listas_items i where a.cod_articulo=i.articulo and i.lista_codi='2' and a.agru_1='25' and activo='S'";
+      con.query(sql,function(error,resultado,fields){
+            if (error) {
+                  console.log("Hubo un error en la consulta", error.message);
+                  return res.status(500).send("Hubo un error en la consulta");
+            }
+            res.send(JSON.stringify(resultado));
+        });
+}
+
 
 
 function obtenerStockCritico(req,res){
@@ -94,7 +106,8 @@ function informacionPedidos(req,res){
 module.exports ={
     obtenerListas:obtenerListas,
     obtenerListaDetalle:obtenerListaDetalle,
-    obtenerOfertas:obtenerOfertas,
+    obtenerOfertasFram:obtenerOfertasFram,
+    obtenerOfertasMensuales:obtenerOfertasMensuales,
     obtenerStockCritico:obtenerStockCritico,
     informacionPedidos:informacionPedidos
 }
