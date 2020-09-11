@@ -103,11 +103,29 @@ function informacionPedidos(req,res){
 }
 
 
+function informacionPedidosFecha(req,res){
+      var fecha=req.params.fecha;
+      
+      var sql="select cod_articulo as id, descrip_arti as d, UM, cant_stock as s, precio_vta as p, i.fecha_modi as fm \
+      from articulos a, listas_items i \
+      where a.cod_articulo=i.articulo and i.lista_codi='2' and activo='S' and i.fecha_modi>="+"'"+fecha+"'"; 
+      con.query(sql,function(error,resultado,fields){
+            if (error) {
+                  console.log("Hubo un error en la consulta sql", error.message);
+                  return res.status(500).send("Hubo un error en la consulta");
+            }
+            var response=resultado.recordsets[0];
+            res.send(JSON.stringify(response));
+      })
+}
+
+
 module.exports ={
     obtenerListas:obtenerListas,
     obtenerListaDetalle:obtenerListaDetalle,
     obtenerOfertasFram:obtenerOfertasFram,
     obtenerOfertasMensuales:obtenerOfertasMensuales,
     obtenerStockCritico:obtenerStockCritico,
-    informacionPedidos:informacionPedidos
+    informacionPedidos:informacionPedidos,
+    informacionPedidosFecha:informacionPedidosFecha
 }
