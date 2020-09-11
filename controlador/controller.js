@@ -91,7 +91,7 @@ function obtenerStockCritico(req,res){
 
 
 function informacionPedidos(req,res){
-      var sql="select cod_articulo, descrip_arti, UM, cant_stock, precio_vta from articulos a, listas_items i where a.cod_articulo=i.articulo and i.lista_codi='2' and activo='S'"
+      var sql="select cod_articulo as id, descrip_arti as d, UM, cant_stock as s, precio_vta as p from articulos a, listas_items i where a.cod_articulo=i.articulo and i.lista_codi='2' and activo='S'"
       con.query(sql,function(error,resultado,fields){
             if (error) {
                   console.log("Hubo un error en la consulta sql", error.message);
