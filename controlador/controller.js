@@ -5,7 +5,6 @@ const constantes = require('../constantes');
 function obtenerListas(req,res){
       res.send(JSON.stringify(constantes.listas));
 };
-
 function obtenerListaDetalle(req,res){
       var id=req.params.id;       
       var sql="select a.cod_articulo as id, a.descrip_arti as d, precio_vta as p, descrip_agru as r, a.cant_stock as s \
@@ -38,7 +37,6 @@ function obtenerListaDetalle(req,res){
       })
 
 }
-
 function obtenerOfertasFram(req,res){
       var sql="select cod_articulo as id, descrip_arti as d, precio_vta as p, web_imagen as img  from articulos a, listas_items i where a.cod_articulo=i.articulo and i.lista_codi='2' and a.agru_1='16' and activo='S'";
       con.query(sql,function(error,resultado,fields){
@@ -49,7 +47,6 @@ function obtenerOfertasFram(req,res){
             res.send(JSON.stringify(resultado.recordsets[0]));
         });
 }
-
 function obtenerOfertasMensuales(req,res){
       var sql="select cod_articulo as id, descrip_arti as d, precio_vta p, web_imagen as img  from articulos a, listas_items i where a.cod_articulo=i.articulo and i.lista_codi='2' and a.agru_1='25' and activo='S'";
       con.query(sql,function(error,resultado,fields){
@@ -60,7 +57,6 @@ function obtenerOfertasMensuales(req,res){
             res.send(JSON.stringify(resultado.recordsets[0]));
         });
 }
-
 function obtenerStockCritico(req,res){
       var sqlComprobanteMespasado="select NUM, TIPO from comp_emitidos where FECHA >= getdate()-30 AND TIPO='FEA' ORDER BY NUM asc";
       con.query(sqlComprobanteMespasado,function(error,resultado,fields){
@@ -94,7 +90,6 @@ function obtenerStockCritico(req,res){
   
 
       }
-
 function informacionPedidos(req,res){
       var sql="select cod_articulo as id, descrip_arti as d, UM, cant_stock as s, precio_vta as p from articulos a, listas_items i where a.cod_articulo=i.articulo and i.lista_codi='2' and activo='S'"
       con.query(sql,function(error,resultado,fields){
@@ -106,7 +101,6 @@ function informacionPedidos(req,res){
             res.send(JSON.stringify(response));
       })
 }
-
 function informacionPedidosFecha(req,res){
       var fecha=req.params.fecha;
       
@@ -122,7 +116,6 @@ function informacionPedidosFecha(req,res){
             res.send(JSON.stringify(response));
       })
 }
-
 function ofertasValvoline(req,res){
       var sql="select cod_articulo as id, descrip_arti as d, precio_vta as p, web_imagen as img \
       from articulos a, listas_items i \
@@ -136,7 +129,9 @@ function ofertasValvoline(req,res){
       or cod_articulo='03VA339'\
       or cod_articulo='03VA601'\
       or cod_articulo='06VA153'\
-      or cod_articulo='06VA405')"
+      or cod_articulo='04VA407'\
+      or cod_articulo='06ZX040'\
+      or cod_articulo='06ZX030')"
       con.query(sql,function(error,resultado,fields){
             if (error) {
                   console.log("Hubo un error en la consulta", error.message);
@@ -145,8 +140,6 @@ function ofertasValvoline(req,res){
             res.send(JSON.stringify(resultado.recordsets[0]));
         });
 }
-
-
 function ofertasMotul(req,res){
       var sql="select cod_articulo as id, descrip_arti as d, precio_vta as p, web_imagen as img \
       from articulos a, listas_items i \
@@ -160,6 +153,7 @@ function ofertasMotul(req,res){
       or cod_articulo='8100/XPOWER/5'\
       or cod_articulo='8100/ECOLITE/4'\
       or cod_articulo='6100/5'\
+      or cod_articulo='SPE/5W30/5'\
       or cod_articulo='4100/15W50/4')"
       con.query(sql,function(error,resultado,fields){
             if (error) {
@@ -169,7 +163,46 @@ function ofertasMotul(req,res){
             res.send(JSON.stringify(resultado.recordsets[0]));
         });
 }
-
+function ofertasTotal(req,res){
+      var sql="select cod_articulo as id, descrip_arti as d, precio_vta as p, web_imagen as img \
+      from articulos a, listas_items i \
+      where a.cod_articulo=i.articulo \
+      and i.lista_codi='2' \
+      and activo='S'\
+      and (cod_articulo='7000N/4' \
+      or cod_articulo='EVO700N/10W40/4'\
+      or cod_articulo='9000/4'\
+      or cod_articulo='INEOFIRST4'\
+      or cod_articulo='EVO500D/15W40/4'\
+      or cod_articulo='GLACELF/ROJO/1'\)"
+      con.query(sql,function(error,resultado,fields){
+            if (error) {
+                  console.log("Hubo un error en la consulta", error.message);
+                  return res.status(500).send("Hubo un error en la consulta");
+            }
+            res.send(JSON.stringify(resultado.recordsets[0]));
+        });
+}
+function ofertasSelenia(req,res){
+      var sql="select cod_articulo as id, descrip_arti as d, precio_vta as p, web_imagen as img \
+      from articulos a, listas_items i \
+      where a.cod_articulo=i.articulo \
+      and i.lista_codi='2' \
+      and activo='S'\
+      and (cod_articulo='SYNTIUM/1000/10W40/4' \
+      or cod_articulo='SELENIA/K/15W40/4'\
+      or cod_articulo='SELENIA/5W30/4'\
+      or cod_articulo='SELENIA/5W40/4'\
+      or cod_articulo='PARAFLU/ROJO'\
+      or cod_articulo='PARAFLU/VERDE')"
+      con.query(sql,function(error,resultado,fields){
+            if (error) {
+                  console.log("Hubo un error en la consulta", error.message);
+                  return res.status(500).send("Hubo un error en la consulta");
+            }
+            res.send(JSON.stringify(resultado.recordsets[0]));
+        });
+}
 
 
 module.exports ={
@@ -181,5 +214,7 @@ module.exports ={
     informacionPedidos:informacionPedidos,
     informacionPedidosFecha:informacionPedidosFecha,
     ofertasValvoline:ofertasValvoline,
-    ofertasMotul:ofertasMotul
+    ofertasMotul:ofertasMotul,
+    ofertasTotal:ofertasTotal,
+    ofertasSelenia:ofertasSelenia
 }
