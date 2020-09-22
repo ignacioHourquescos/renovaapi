@@ -7,9 +7,7 @@ function obtenerListas(req,res){
 };
 
 function obtenerListaDetalle(req,res){
-      var id=req.params.id;
-      var sql="select cod_articulo as id, descrip_arti as d, precio_vta as p, cant_stock as s from articulos a, listas_items i where a.cod_articulo=i.articulo and i.lista_codi='2' and a.agru_1="+id+"and activo='S' order by cod_articulo ASC";
-       
+      var id=req.params.id;       
       var sql="select a.cod_articulo as id, a.descrip_arti as d, precio_vta as p, descrip_agru as r, a.cant_stock as s \
       from articulos a \
       join agrupaciones ag\
@@ -41,7 +39,6 @@ function obtenerListaDetalle(req,res){
 
 }
 
-
 function obtenerOfertasFram(req,res){
       var sql="select cod_articulo as id, descrip_arti as d, precio_vta as p, web_imagen as img  from articulos a, listas_items i where a.cod_articulo=i.articulo and i.lista_codi='2' and a.agru_1='16' and activo='S'";
       con.query(sql,function(error,resultado,fields){
@@ -63,8 +60,6 @@ function obtenerOfertasMensuales(req,res){
             res.send(JSON.stringify(resultado.recordsets[0]));
         });
 }
-
-
 
 function obtenerStockCritico(req,res){
       var sqlComprobanteMespasado="select NUM, TIPO from comp_emitidos where FECHA >= getdate()-30 AND TIPO='FEA' ORDER BY NUM asc";
@@ -100,7 +95,6 @@ function obtenerStockCritico(req,res){
 
       }
 
-
 function informacionPedidos(req,res){
       var sql="select cod_articulo as id, descrip_arti as d, UM, cant_stock as s, precio_vta as p from articulos a, listas_items i where a.cod_articulo=i.articulo and i.lista_codi='2' and activo='S'"
       con.query(sql,function(error,resultado,fields){
@@ -112,7 +106,6 @@ function informacionPedidos(req,res){
             res.send(JSON.stringify(response));
       })
 }
-
 
 function informacionPedidosFecha(req,res){
       var fecha=req.params.fecha;
@@ -130,6 +123,54 @@ function informacionPedidosFecha(req,res){
       })
 }
 
+function ofertasValvoline(req,res){
+      var sql="select cod_articulo as id, descrip_arti as d, precio_vta as p, web_imagen as img \
+      from articulos a, listas_items i \
+      where a.cod_articulo=i.articulo \
+      and i.lista_codi='2' \
+      and activo='S'\
+      and (cod_articulo='03VA779' \
+      or cod_articulo='03VA147'\
+      or cod_articulo='03VA381'\
+      or cod_articulo='06VA381'\
+      or cod_articulo='03VA339'\
+      or cod_articulo='03VA601'\
+      or cod_articulo='06VA153'\
+      or cod_articulo='06VA405')"
+      con.query(sql,function(error,resultado,fields){
+            if (error) {
+                  console.log("Hubo un error en la consulta", error.message);
+                  return res.status(500).send("Hubo un error en la consulta");
+            }
+            res.send(JSON.stringify(resultado.recordsets[0]));
+        });
+}
+
+
+function ofertasMotul(req,res){
+      var sql="select cod_articulo as id, descrip_arti as d, precio_vta as p, web_imagen as img \
+      from articulos a, listas_items i \
+      where a.cod_articulo=i.articulo \
+      and i.lista_codi='2' \
+      and activo='S'\
+      and (cod_articulo='8100/5' \
+      or cod_articulo='4100/5'\
+      or cod_articulo='4100/4'\
+      or cod_articulo='8100/ECO/5'\
+      or cod_articulo='8100/XPOWER/5'\
+      or cod_articulo='8100/ECOLITE/4'\
+      or cod_articulo='6100/5'\
+      or cod_articulo='4100/15W50/4')"
+      con.query(sql,function(error,resultado,fields){
+            if (error) {
+                  console.log("Hubo un error en la consulta", error.message);
+                  return res.status(500).send("Hubo un error en la consulta");
+            }
+            res.send(JSON.stringify(resultado.recordsets[0]));
+        });
+}
+
+
 
 module.exports ={
     obtenerListas:obtenerListas,
@@ -138,5 +179,7 @@ module.exports ={
     obtenerOfertasMensuales:obtenerOfertasMensuales,
     obtenerStockCritico:obtenerStockCritico,
     informacionPedidos:informacionPedidos,
-    informacionPedidosFecha:informacionPedidosFecha
+    informacionPedidosFecha:informacionPedidosFecha,
+    ofertasValvoline:ofertasValvoline,
+    ofertasMotul:ofertasMotul
 }

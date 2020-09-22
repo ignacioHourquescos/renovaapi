@@ -34,8 +34,8 @@ app.get('/ofertasMensuales',              controller.obtenerOfertasMensuales);
 app.get('/stock',                         controller.obtenerStockCritico);
 app.get('/listadoSistemaPedidos/',        controller.informacionPedidos);
 app.get('/listadoSistemaPedidos/:fecha',  controller.informacionPedidosFecha);
-
-
+app.get('/ofertasValvoline',                 controller.ofertasValvoline);
+app.get('/ofertasMotul',                 controller.ofertasMotul);
 
 //app.use('/clientes' , clientesRouter);
 
