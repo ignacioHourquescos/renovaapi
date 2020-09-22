@@ -9,6 +9,18 @@ function obtenerListas(req,res){
 function obtenerListaDetalle(req,res){
       var id=req.params.id;
       var sql="select cod_articulo as id, descrip_arti as d, precio_vta as p, cant_stock as s from articulos a, listas_items i where a.cod_articulo=i.articulo and i.lista_codi='2' and a.agru_1="+id+"and activo='S' order by cod_articulo ASC";
+       
+      var sql="select a.cod_articulo as id, a.descrip_arti as d, precio_vta as p, descrip_agru as r, a.cant_stock as s \
+      from articulos a \
+      join agrupaciones ag\
+      on a.agru_2=ag.codi_agru \
+      join listas_items i \
+      on a.cod_articulo=i.articulo\
+      and a.agru_1="+id+"\
+      and activo='S' \
+      order by r ASC, id ASC"
+      
+      
       for(var i=0;i<constantes.listas.length;i++){
             if (constantes.listas[i].codigo==id){
                   var agrupacion=constantes.listas[i].descripcion;
@@ -74,7 +86,7 @@ function obtenerStockCritico(req,res){
             from articulos a \
             where cant_stock BETWEEN -100 and 80  \
             AND len(UM) >2) D  \
-            ORDER BY 4 DESC, CANT_STOCK ASC" 
+            ORDER BY 6 ASC, CANT_STOCK ASC" 
             
            con.query(sqlArticulosCriticos,function(error,response,fields){
                   if (error) {
