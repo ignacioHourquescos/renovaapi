@@ -13,10 +13,11 @@ function obtenerListaDetalle(req,res){
       on a.agru_2=ag.codi_agru \
       join listas_items i \
       on a.cod_articulo=i.articulo\
-      and a.agru_1="+id+"\
-      and activo='S' \
+      and a.agru_1="+id+
+      "and activo='S' \
+      and i.lista_codi='2'\
+      AND ag.descrip_agru<>'AGRUPACION PRUEBA'\
       order by r ASC, id ASC"
-      
       
       for(var i=0;i<constantes.listas.length;i++){
             if (constantes.listas[i].codigo==id){
@@ -72,10 +73,10 @@ function obtenerStockCritico(req,res){
                   from reng_fac r  \
                   where TIPO_FACT='FEA'  \
                   AND NUM_FACT >="+ ultimaFacturaTreintaDias+
-            "AND r.articulo=a.cod_articulo \
-            GROUP BY ARTICULO),0) as unidades \
+                  "AND r.articulo=a.cod_articulo \
+                  GROUP BY ARTICULO),0) as unidades \
             from articulos a \
-            where cant_stock BETWEEN -100 and 80  \
+            where cant_stock BETWEEN -100 and 50  \
             AND len(UM) >2) D  \
             ORDER BY 6 ASC, CANT_STOCK ASC" 
             
@@ -89,7 +90,7 @@ function obtenerStockCritico(req,res){
         });
   
 
-      }
+}
 function informacionPedidos(req,res){
       var sql="select cod_articulo as id, descrip_arti as d, UM, cant_stock as s, precio_vta as p from articulos a, listas_items i where a.cod_articulo=i.articulo and i.lista_codi='2' and activo='S'"
       con.query(sql,function(error,resultado,fields){
