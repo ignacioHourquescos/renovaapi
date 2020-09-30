@@ -7,7 +7,7 @@ const listas=[
 {"codigo":14,"descripcion":"LOCX"},
 {"codigo":11,"descripcion":"WAGNER LOCKHEED"},
 {"codigo":13,"descripcion":"TRICO"},
-{"codigo":8,"descripcion":"FILTROS ALTERNATIVOS"},
+{"codigo":8,"descripcion":"RAMA"},
 ];
 
 module.exports={
