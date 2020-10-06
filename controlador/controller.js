@@ -22,6 +22,7 @@ function obtenerListaDetalle(req,res){
       for(var i=0;i<constantes.listas.length;i++){
             if (constantes.listas[i].codigo==id){
                   var agrupacion=constantes.listas[i].descripcion;
+                  var descuento=constantes.listas[i].descuento;
             }
       }
       con.query(sql,function(error,resultado,fields){
@@ -31,8 +32,9 @@ function obtenerListaDetalle(req,res){
                 return res.status(500).send("Hubo un error en la consulta");
           }
           var response ={
-                agrupacion:agrupacion,
-                resultado:resultado.recordsets[0]
+                  agrupacion:agrupacion,
+                  descuento:descuento,
+                  resultado:resultado.recordsets[0]
           }
           res.send(JSON.stringify(response));
       })
