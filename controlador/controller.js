@@ -127,7 +127,6 @@ function ofertasValvoline(req,res){
       and activo='S'\
       and (cod_articulo='03VA779' \
       or cod_articulo='03VA147'\
-
       or cod_articulo='06VA381'\
       or cod_articulo='03VA339'\
       or cod_articulo='03VA601'\
