@@ -52,7 +52,7 @@ function obtenerOfertasKits(req,res){
 }
 
 function obtenerOfertasFram(req,res){
-      var sql="select cod_articulo as id, descrip_arti as d, precio_vta as p, web_imagen as img  from articulos a, listas_items i where a.cod_articulo=i.articulo and i.lista_codi='2' and a.agru_1='23' and activo='S'";
+      var sql="select cod_articulo as id, descrip_ARTI_WEB as d, precio_vta as p, web_imagen as img  from articulos a, listas_items i where a.cod_articulo=i.articulo and i.lista_codi='2' and a.agru_1='23' and activo='S'";
       con.query(sql,function(error,resultado,fields){
             if (error) {
                   console.log("Hubo un error en la consulta", error.message);
@@ -64,7 +64,7 @@ function obtenerOfertasFram(req,res){
 
 
 function obtenerOfertasMensuales(req,res){
-      var sql="select cod_articulo as id, descrip_arti as d, precio_vta p, web_imagen as img  from articulos a, listas_items i where a.cod_articulo=i.articulo and i.lista_codi='2' and a.agru_1='25' and activo='S'";
+      var sql="select cod_articulo as id, , descrip_ARTI_WEB as d, precio_vta p, web_imagen as img  from articulos a, listas_items i where a.cod_articulo=i.articulo and i.lista_codi='2' and a.agru_1='25' and activo='S'";
       con.query(sql,function(error,resultado,fields){
             if (error) {
                   console.log("Hubo un error en la consulta", error.message);
@@ -133,19 +133,19 @@ function informacionPedidosFecha(req,res){
       })
 }
 function ofertasValvoline(req,res){
-      var sql="select cod_articulo as id, descrip_arti as d, precio_vta as p, web_imagen as img \
+      var sql="select cod_articulo as id,  precio_vta as p, web_imagen as img, descrip_ARTI_WEB as web \
       from articulos a, listas_items i \
       where a.cod_articulo=i.articulo \
       and i.lista_codi='2' \
       and activo='S'\
       and (cod_articulo='03VA779' \
-      or cod_articulo='03VA147'\
-      or cod_articulo='06VA381'\
-      or cod_articulo='03VA339'\
-      or cod_articulo='03VA601'\
-      or cod_articulo='04VA407'\
-      or cod_articulo='06ZX040'\
-      or cod_articulo='06ZX030')"
+      or cod_articulo='04VA153'\
+      or cod_articulo='04VA2296'\
+      or cod_articulo='03VA567'\
+      or cod_articulo='01VA150'\
+      or cod_articulo='01VA156'\
+      or cod_articulo='01VA173'\
+      or cod_articulo='01VA174') order BY ID desc"
       con.query(sql,function(error,resultado,fields){
             if (error) {
                   console.log("Hubo un error en la consulta", error.message);
@@ -154,8 +154,33 @@ function ofertasValvoline(req,res){
             res.send(JSON.stringify(resultado.recordsets[0]));
         });
 }
+function ofertasValvolineVarios(req,res){
+      var sql="select cod_articulo as id, precio_vta as p, web_imagen as img, descrip_ARTI_WEB as web \
+      from articulos a, listas_items i \
+      where a.cod_articulo=i.articulo \
+      and i.lista_codi='2' \
+      and activo='S'\
+      and (cod_articulo='06VA153' \
+      or cod_articulo='06VA348'\
+      or cod_articulo='06VA345'\
+      or cod_articulo='06VA405'\
+      or cod_articulo='06VA246'\
+      or cod_articulo='06ZX040'\
+      or cod_articulo='06ZX030'\
+      or cod_articulo='06PA512') ORDER BY id DESC"
+      con.query(sql,function(error,resultado,fields){
+            if (error) {
+                  console.log("Hubo un error en la consulta", error.message);
+                  return res.status(500).send("Hubo un error en la consulta");
+            }
+            res.send(JSON.stringify(resultado.recordsets[0]));
+        });
+}
+
+
+
 function ofertasMotul(req,res){
-      var sql="select cod_articulo as id, descrip_arti as d, precio_vta as p, web_imagen as img \
+      var sql="select cod_articulo as id, descrip_ARTI_WEB  as d, precio_vta as p, web_imagen as img \
       from articulos a, listas_items i \
       where a.cod_articulo=i.articulo \
       and i.lista_codi='2' \
@@ -178,7 +203,7 @@ function ofertasMotul(req,res){
         });
 }
 function ofertasTotal(req,res){
-      var sql="select cod_articulo as id, descrip_arti as d, precio_vta as p, web_imagen as img \
+      var sql="select cod_articulo as id, descrip_ARTI_WEB  as d, precio_vta as p, web_imagen as img \
       from articulos a, listas_items i \
       where a.cod_articulo=i.articulo \
       and i.lista_codi='2' \
@@ -198,7 +223,7 @@ function ofertasTotal(req,res){
         });
 }
 function ofertasSelenia(req,res){
-      var sql="select cod_articulo as id, descrip_arti as d, precio_vta as p, web_imagen as img \
+      var sql="select cod_articulo as id, descrip_ARTI_WEB  as d, precio_vta as p, web_imagen as img \
       from articulos a, listas_items i \
       where a.cod_articulo=i.articulo \
       and i.lista_codi='2' \
@@ -231,5 +256,6 @@ module.exports ={
     ofertasValvoline:ofertasValvoline,
     ofertasMotul:ofertasMotul,
     ofertasTotal:ofertasTotal,
-    ofertasSelenia:ofertasSelenia
+    ofertasSelenia:ofertasSelenia,
+    ofertasValvolineVarios:ofertasValvolineVarios,
 }
