@@ -244,6 +244,35 @@ function ofertasSelenia(req,res){
 }
 
 
+function ofertasVarios(req,res){
+
+      var sql="select cod_articulo as id, descrip_ARTI_WEB  as web, precio_vta as p, web_imagen as img \
+      from articulos a, listas_items i \
+      where a.cod_articulo=i.articulo \
+      and i.lista_codi='2' \
+      and activo='S'\
+      and (cod_articulo='WLDOT3 1000' \
+      or cod_articulo='WLDOT3 500' \
+      or cod_articulo='WLDOT3 200'\
+      or cod_articulo='WLDOT4 1000'\
+      or cod_articulo='WLDOT4 200'\
+      or cod_articulo='LOCXCM'\
+      or cod_articulo='LOCXW7'\
+      or cod_articulo='LOCXLC'\
+      or cod_articulo='LOCXLM'\
+      or cod_articulo='Limpiamanos'\
+      or cod_articulo='LOCXAA'\
+      or cod_articulo='LOCXBC'\
+      or cod_articulo='LOCXCM')"
+      con.query(sql,function(error,resultado,fields){
+            if (error) {
+                  console.log("Hubo un error en la consulta", error.message);
+                  return res.status(500).send("Hubo un error en la consulta");
+            }
+            res.send(JSON.stringify(resultado.recordsets[0]));
+        });
+}
+
 module.exports ={
     obtenerListas:obtenerListas,
     obtenerListaDetalle:obtenerListaDetalle,
@@ -258,4 +287,5 @@ module.exports ={
     ofertasTotal:ofertasTotal,
     ofertasSelenia:ofertasSelenia,
     ofertasValvolineVarios:ofertasValvolineVarios,
+    ofertasVarios:ofertasVarios,
 }

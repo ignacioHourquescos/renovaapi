@@ -1,7 +1,7 @@
 const listas=[
     {"codigo":1,    "descripcion":"FRAM",               "aumento":"Octubre: Sin aumento",                "descuento":"Consultar descuento x cantidad"},
     {"codigo":12,   "descripcion":"MOTUL",              "aumento":"Octubre: + 30% solo refrigerantes",    "descuento":"10% Descuento x caja cerrada"},       
-    {"codigo":3,    "descripcion":"VALVOLINE",          "aumento":"Octubre: Sin aumento",                "descuento":"10% Descuento x caja cerrada"},      
+    {"codigo":3,    "descripcion":"VALVOLINE",          "aumento":"19 Octubre: + 5% aprox (baja en transmision y refrigerantes)",            "descuento":"10% Descuento x caja cerrada"},      
     {"codigo":316,  "descripcion":"PETRONAS",           "aumento":"Octubre: + 7%",                        "descuento":"10% Descuento x caja cerrada"},         
     {"codigo":5,    "descripcion":"TOTAL",              "aumento":"Octubre: Sin aumento",                "descuento":"10% Descuento x caja cerrada"},     
     {"codigo":14,   "descripcion":"LOCX",               "aumento":"Octubre: + 7%",                        "descuento":"10% Descuento x 10 unidades surtidas"}, 
