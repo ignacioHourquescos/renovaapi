@@ -273,6 +273,17 @@ function ofertasVarios(req,res){
         });
 }
 
+function obtenerVinto(req,res){
+      var sql="select cod_articulo as id, descrip_arti as d, precio_vta as p, web_imagen as img  from articulos a, listas_items i where a.cod_articulo=i.articulo and i.lista_codi='2' and a.agru_1='33' and activo='S'";
+      con.query(sql,function(error,resultado,fields){
+            if (error) {
+                  console.log("Hubo un error en la consulta", error.message);
+                  return res.status(500).send("Hubo un error en la consulta");
+            }
+            res.send(JSON.stringify(resultado.recordsets[0]));
+        });
+}
+
 module.exports ={
     obtenerListas:obtenerListas,
     obtenerListaDetalle:obtenerListaDetalle,
@@ -288,4 +299,5 @@ module.exports ={
     ofertasSelenia:ofertasSelenia,
     ofertasValvolineVarios:ofertasValvolineVarios,
     ofertasVarios:ofertasVarios,
+    obtenerVinto:obtenerVinto,
 }

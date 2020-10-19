@@ -41,6 +41,7 @@ app.get('/ofertasTotal',                  controller.ofertasTotal);
 app.get('/ofertasSelenia',                controller.ofertasSelenia);
 app.get('/ofertasValvolineVarios',        controller.ofertasValvolineVarios);
 app.get('/ofertasVarias',                 controller.ofertasVarios);
+app.get('/ofertasVinto',                  controller.obtenerVinto);
 
 //app.use('/clientes' , clientesRouter);
 
