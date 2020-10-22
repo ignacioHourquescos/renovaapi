@@ -6,7 +6,7 @@ const listas=[
     {"codigo":5,    "descripcion":"TOTAL",             "mes":"Octubre", "aumento":"Sin aumento",                "descuento":"10% Descuento x caja cerrada"},     
     {"codigo":14,   "descripcion":"LOCX",              "mes":"Octubre", "aumento":"+ 7%",                        "descuento":"10% Descuento x 10 unidades surtidas"}, 
     {"codigo":11,   "descripcion":"WAGNER LOCKHEED",   "mes":"Octubre", "aumento":"Aumento Desparejo",          "descuento":"10% Descuento x 10 unidades surtidas"},
-    {"codigo":13,   "descripcion":"TRICO",             "mes":"Octubre", "aumento":"Aumento Desparejo ",         "descuento":"10% Descuento x 10 unidades surtidas"},
+    {"codigo":13,   "descripcion":"TRICO",             "mes":"Octubre", "aumento":"Aumento Desparejo ",         "descuento":"5% Descuento x 10 unidades surtidas"},
     {"codigo":8,    "descripcion":"RAMA",              "mes":"Octubre", "aumento":"+ 10%",                       "descuento":"Consultar descuento x cantidad"}
 ];
 
