@@ -185,7 +185,7 @@ function ofertasMotul(req,res){
       where a.cod_articulo=i.articulo \
       and i.lista_codi='2' \
       and activo='S'\
-       and cod_articulo='11111'\
+      and cod_articulo='11111'\
       or cod_articulo='4100/5'\
       or cod_articulo='4100/4'\
       or cod_articulo='8100/ECO/5'\
@@ -193,7 +193,7 @@ function ofertasMotul(req,res){
       or cod_articulo='8100/ECOLITE/4'\
       or cod_articulo='6100/5'\
       or cod_articulo='SPE/5W30/5'\
-      or cod_articulo='4100/15W50/4')"
+      or cod_articulo='4100/15W50/4'"
       con.query(sql,function(error,resultado,fields){
             if (error) {
                   console.log("Hubo un error en la consulta", error.message);
@@ -202,6 +202,8 @@ function ofertasMotul(req,res){
             res.send(JSON.stringify(resultado.recordsets[0]));
         });
 }
+
+
 function ofertasTotal(req,res){
       var sql="select cod_articulo as id, descrip_ARTI_WEB  as d, precio_vta as p, web_imagen as img \
       from articulos a, listas_items i \
