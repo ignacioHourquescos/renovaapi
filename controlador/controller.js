@@ -50,7 +50,6 @@ function obtenerOfertasKits(req,res){
             res.send(JSON.stringify(resultado.recordsets[0]));
         });
 }
-
 function obtenerOfertasFram(req,res){
       var sql="select cod_articulo as id, descrip_ARTI_WEB as d, precio_vta as p, web_imagen as img  from articulos a, listas_items i where a.cod_articulo=i.articulo and i.lista_codi='2' and a.agru_1='23' and activo='S'";
       con.query(sql,function(error,resultado,fields){
@@ -61,8 +60,6 @@ function obtenerOfertasFram(req,res){
             res.send(JSON.stringify(resultado.recordsets[0]));
         });
 }
-
-
 function obtenerOfertasMensuales(req,res){
       var sql="select cod_articulo as id, , descrip_ARTI_WEB as d, precio_vta p, web_imagen as img  from articulos a, listas_items i where a.cod_articulo=i.articulo and i.lista_codi='2' and a.agru_1='25' and activo='S'";
       con.query(sql,function(error,resultado,fields){
@@ -176,9 +173,6 @@ function ofertasValvolineVarios(req,res){
             res.send(JSON.stringify(resultado.recordsets[0]));
         });
 }
-
-
-
 function ofertasMotul(req,res){
       var sql="select cod_articulo as id, descrip_ARTI_WEB  as d, precio_vta as p, web_imagen as img \
       from articulos a, listas_items i \
@@ -242,8 +236,6 @@ function ofertasSelenia(req,res){
             res.send(JSON.stringify(resultado.recordsets[0]));
         });
 }
-
-
 function ofertasVarios(req,res){
 
       var sql="select cod_articulo as id, descrip_ARTI_WEB  as web, precio_vta as p, web_imagen as img \
@@ -272,9 +264,18 @@ function ofertasVarios(req,res){
             res.send(JSON.stringify(resultado.recordsets[0]));
         });
 }
-
 function obtenerVinto(req,res){
       var sql="select cod_articulo as id, descrip_ARTI_WEB  as web, precio_vta as p, web_imagen as img  from articulos a, listas_items i where a.cod_articulo=i.articulo and i.lista_codi='2' and a.agru_1='33' and web_publi='S' and activo='S'";
+      con.query(sql,function(error,resultado,fields){
+            if (error) {
+                  console.log("Hubo un error en la consulta", error.message);
+                  return res.status(500).send("Hubo un error en la consulta");
+            }
+            res.send(JSON.stringify(resultado.recordsets[0]));
+        });
+}
+function ventasPorAgrupacion(req,res){
+      var sql="factu_venta_arti_lista '20201001',  '20201030' , @agru_1=12";
       con.query(sql,function(error,resultado,fields){
             if (error) {
                   console.log("Hubo un error en la consulta", error.message);
@@ -300,4 +301,5 @@ module.exports ={
     ofertasValvolineVarios:ofertasValvolineVarios,
     ofertasVarios:ofertasVarios,
     obtenerVinto:obtenerVinto,
+    ventasPorAgrupacion:ventasPorAgrupacion,
 }
