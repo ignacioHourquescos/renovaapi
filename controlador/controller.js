@@ -275,14 +275,15 @@ function obtenerVinto(req,res){
         });
 }
 function ventasPorAgrupacion(req,res){
-      var sql="factu_venta_arti_lista '20201001',  '20201030' , @agru_1=12";
+      var id=req.params.id;  
+      var sql="factu_venta_arti_lista '20201001',  '20201030' , @agru_1="+id;
       con.query(sql,function(error,resultado,fields){
             if (error) {
                   console.log("Hubo un error en la consulta", error.message);
                   return res.status(500).send("Hubo un error en la consulta");
             }
             res.send(JSON.stringify(resultado.recordsets[0]));
-        });
+      });
 }
 
 module.exports ={
