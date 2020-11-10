@@ -42,7 +42,7 @@ app.get('/ofertasSelenia',                controller.ofertasSelenia);
 app.get('/ofertasValvolineVarios',        controller.ofertasValvolineVarios);
 app.get('/ofertasVarias',                 controller.ofertasVarios);
 app.get('/ofertasVinto',                  controller.obtenerVinto);
-app.get('/ventasPorAgrupacion/:id',           controller.ventasPorAgrupacion);
+app.get('/ventasPorAgrupacion/',           controller.ventasPorAgrupacion);
 
 //app.use('/clientes' , clientesRouter);
 

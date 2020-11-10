@@ -275,8 +275,10 @@ function obtenerVinto(req,res){
         });
 }
 function ventasPorAgrupacion(req,res){
-      var id=req.params.id;  
-      var sql="factu_venta_arti_lista '20201001',  '20201030' , @agru_1="+id;
+      var id=req.query.id; 
+      var fechaDesde= req.query.fechaDesde;
+      var fechaHasta=req.query.fechaHasta;
+      var sql = `factu_venta_arti_lista '${fechaDesde}', '${fechaHasta}', @agru_1=${id}`;
       con.query(sql,function(error,resultado,fields){
             if (error) {
                   console.log("Hubo un error en la consulta", error.message);
