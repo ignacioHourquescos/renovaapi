@@ -179,7 +179,7 @@ function ofertasMotul(req,res){
       where a.cod_articulo=i.articulo \
       and i.lista_codi='2' \
 and activo='S'\
-      and (cod_articulo='11111' \
+      and (cod_articulo='8100/5' \
       or cod_articulo='4100/5'\
       or cod_articulo='4100/4'\
       or cod_articulo='8100/ECO/5'\
