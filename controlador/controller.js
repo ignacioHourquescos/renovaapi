@@ -227,7 +227,9 @@ function ofertasSelenia(req,res){
       or cod_articulo='SELENIA/5W30/4'\
       or cod_articulo='SELENIA/5W40/4'\
       or cod_articulo='PARAFLU/ROJO'\
-      or cod_articulo='PARAFLU/VERDE')"
+      or cod_articulo='PARAFLU/VERDE'\
+      or cod_articulo='TAMBOR/MACH5/15W40'\
+      or cod_articulo='BALDE/MACH5/20W50')"
       con.query(sql,function(error,resultado,fields){
             if (error) {
                   console.log("Hubo un error en la consulta", error.message);
