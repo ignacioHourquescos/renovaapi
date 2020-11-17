@@ -291,7 +291,6 @@ function ventasPorAgrupacion(req,res){
             res.send(JSON.stringify(resultado.recordsets[0]));
       });
 }
-
 function ventasGenerales(req,res){
       var fechaDesde= req.query.fechaDesde;
       var fechaHasta=req.query.fechaHasta;
@@ -305,6 +304,18 @@ function ventasGenerales(req,res){
       });
 }
 
+function obtenerStockArticulo(req,res){
+      var id= req.query.id;
+      var sql="select cod_articulo as id,  cant_stock as s from articulos WHERE cod_articulo="+id;
+      con.query(sql,function(error,resultado,fields){
+            if (error) {
+                  console.log("Hubo un error en la consulta", error.message);
+                  return res.status(500).send("Hubo un error en la consulta");
+            }
+            res.send(JSON.stringify(resultado.recordsets[0]));
+      });
+
+}
 
 module.exports ={
     obtenerListas:obtenerListas,
@@ -323,6 +334,7 @@ module.exports ={
     ofertasVarios:ofertasVarios,
     obtenerVinto:obtenerVinto,
     ventasPorAgrupacion:ventasPorAgrupacion,
-    ventasGenerales:ventasGenerales
-    
+    ventasGenerales:ventasGenerales,
+    obtenerStockArticulo:obtenerStockArticulo,
+
 }

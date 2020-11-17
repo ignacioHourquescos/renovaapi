@@ -43,7 +43,8 @@ app.get('/ofertasValvolineVarios',        controller.ofertasValvolineVarios);
 app.get('/ofertasVarias',                 controller.ofertasVarios);
 app.get('/ofertasVinto',                  controller.obtenerVinto);
 app.get('/ventasPorAgrupacion/',          controller.ventasPorAgrupacion);
-app.get('/ventasGenerales',               controller.ventasGenerales);                  
+app.get('/ventasGenerales',               controller.ventasGenerales);     
+app.get('/obtenerStockArticulo',          controller.obtenerStockArticulo);           
 
 //app.use('/clientes' , clientesRouter);npo
 
