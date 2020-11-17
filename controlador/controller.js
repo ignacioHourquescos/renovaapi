@@ -292,6 +292,20 @@ function ventasPorAgrupacion(req,res){
       });
 }
 
+function ventasGenerales(req,res){
+      var fechaDesde= req.query.fechaDesde;
+      var fechaHasta=req.query.fechaHasta;
+      var sql = `factu_venta_arti_lista '${fechaDesde}', '${fechaHasta}'`;
+      con.query(sql,function(error,resultado,fields){
+            if (error) {
+                  console.log("Hubo un error en la consulta", error.message);
+                  return res.status(500).send("Hubo un error en la consulta");
+            }
+            res.send(JSON.stringify(resultado.recordsets[0]));
+      });
+}
+
+
 module.exports ={
     obtenerListas:obtenerListas,
     obtenerListaDetalle:obtenerListaDetalle,
@@ -309,4 +323,6 @@ module.exports ={
     ofertasVarios:ofertasVarios,
     obtenerVinto:obtenerVinto,
     ventasPorAgrupacion:ventasPorAgrupacion,
+    ventasGenerales:ventasGenerales
+    
 }
