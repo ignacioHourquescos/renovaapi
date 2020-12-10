@@ -143,6 +143,7 @@ function ofertasValvoline(req,res){
       or cod_articulo='03VA567'\
       or cod_articulo='01VA150'\
       or cod_articulo='01VA156'\
+      or cod_articulo='01VA299'\
       or cod_articulo='01VA173'\
       or cod_articulo='01VA174') order BY ID desc"
       con.query(sql,function(error,resultado,fields){
