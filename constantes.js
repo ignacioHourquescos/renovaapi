@@ -1,8 +1,8 @@
 const listas=[
-    {"codigo":1,    "descripcion":"FRAM",              "mes":"Noviembre", "aumento":"+ 6%",                "descuento":"Consultar descuento x cantidad"},
-    {"codigo":12,   "descripcion":"MOTUL",             "mes":"Diciembre", "aumento":"+ 4%",                "descuento":"10% Descuento x caja cerrada"},       
+    {"codigo":1,    "descripcion":"FRAM",              "mes":"Enero",   "aumento":"+ 7% promedio desparejo",                "descuento":"Consultar descuento x cantidad"},
+    {"codigo":12,   "descripcion":"MOTUL",             "mes":"Enero", "aumento":"+ 5,5% parejo",                "descuento":"10% Descuento x caja cerrada"},       
     {"codigo":3,    "descripcion":"VALVOLINE",         "mes":"Diciembre", "aumento":"+ 9% promedio ",            "descuento":"10% Descuento x caja cerrada"},      
-    {"codigo":316,  "descripcion":"PETRONAS",          "mes":"Diciembre", "aumento":"+ 5% (+15% refrigerantes",                        "descuento":"10% Descuento x caja cerrada"},         
+    {"codigo":316,  "descripcion":"PETRONAS",          "mes":"Enero", "aumento":"+ 6% parejo",                        "descuento":"10% Descuento x caja cerrada"},         
     {"codigo":5,    "descripcion":"TOTAL",             "mes":"Noviembre", "aumento":"+ 10%",                "descuento":"10% Descuento x caja cerrada"},     
     {"codigo":14,   "descripcion":"LOCX",              "mes":"Noviembre", "aumento":"+ 8%",                        "descuento":"10% Descuento x 10 unidades surtidas"}, 
     {"codigo":11,   "descripcion":"WAGNER LOCKHEED",   "mes":"Noviembre", "aumento":"+ 5%",          "descuento":"10% Descuento x 10 unidades surtidas"},
