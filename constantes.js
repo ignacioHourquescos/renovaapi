@@ -1,7 +1,7 @@
 const listas=[
     {"codigo":1,    "descripcion":"FRAM",              "mes":"Enero",   "aumento":"+ 7% nacional / hasta 50% importados",                "descuento":"Consultar descuento x cantidad"},
     {"codigo":12,   "descripcion":"MOTUL",             "mes":"Enero", "aumento":"+ 5,5% parejo",                "descuento":"10% Descuento x caja cerrada"},       
-    {"codigo":3,    "descripcion":"VALVOLINE",         "mes":"Diciembre", "aumento":"+ 9% promedio ",            "descuento":"10% Descuento x caja cerrada"},      
+    {"codigo":3,    "descripcion":"VALVOLINE",         "mes":"eNERO", "aumento":"+ 7% (salvo aceite de caja desparejo) ",            "descuento":"10% Descuento x caja cerrada"},      
     {"codigo":316,  "descripcion":"PETRONAS",          "mes":"Enero", "aumento":"+ 6% parejo",                        "descuento":"10% Descuento x caja cerrada"},         
     {"codigo":5,    "descripcion":"TOTAL",             "mes":"Noviembre", "aumento":"+ 10%",                "descuento":"10% Descuento x caja cerrada"},     
     {"codigo":14,   "descripcion":"LOCX",              "mes":"Noviembre", "aumento":"+ 8%",                        "descuento":"10% Descuento x 10 unidades surtidas"}, 
