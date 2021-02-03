@@ -41,7 +41,7 @@ function obtenerListaDetalle(req,res){
 
 }
 function obtenerOfertasKits(req,res){
-      var sql="select cod_articulo as id, descrip_arti as d, precio_vta as p, web_imagen as img  from articulos a, listas_items i where a.cod_articulo=i.articulo and i.lista_codi='2' and a.agru_1='16' and activo='S'";
+      var sql="select cod_articulo as id, descrip_arti as d, precio_vta as p, web_imagen as img  from articulos a, listas_items i where a.cod_articulo=i.articulo and i.lista_codi='2' and a.agru_1='16' and activo='S' and web_publi='S'";
       con.query(sql,function(error,resultado,fields){
             if (error) {
                   console.log("Hubo un error en la consulta", error.message);
