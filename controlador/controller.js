@@ -320,6 +320,19 @@ function obtenerStockArticulo(req,res){
 
 }
 
+
+function obtenerAgrupacionDeArticulo(req,res){
+    var sql="select COD_ARTICULO as codigo, descrip_agru as agrupacion from ARTICULOS, Agrupaciones where Articulos.agru_1 =  Agrupaciones.codi_agru";
+    con.query(sql,function(error,resultado,fields){
+          if (error) {
+                console.log("Hubo un error en la consulta", error.message);
+                return res.status(500).send("Hubo un error en la consulta");
+          }
+          res.send(JSON.stringify(resultado.recordsets[0]));
+    });
+
+}
+
 module.exports ={
     obtenerListas:obtenerListas,
     obtenerListaDetalle:obtenerListaDetalle,
@@ -339,5 +352,6 @@ module.exports ={
     ventasPorAgrupacion:ventasPorAgrupacion,
     ventasGenerales:ventasGenerales,
     obtenerStockArticulo:obtenerStockArticulo,
+    obtenerAgrupacionDeArticulo:obtenerAgrupacionDeArticulo
 
 }
