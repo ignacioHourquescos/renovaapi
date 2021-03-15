@@ -70,6 +70,29 @@ function obtenerOfertasMensuales(req,res){
             res.send(JSON.stringify(resultado.recordsets[0]));
         });
 }
+
+
+function remateMercaderia(req,res){
+    var sql="select cod_articulo as id,  precio_vta as p, web_imagen as img, descrip_ARTI_WEB as web \
+    from articulos a, listas_items i \
+    where a.cod_articulo=i.articulo \
+    and activo='S'\
+    and (cod_articulo='GNC/1' \
+    or cod_articulo='EVO500N/20W50/1'\
+    or cod_articulo='7000N/1'\
+    or cod_articulo='EVO700N/10W40/1'\) order BY ID desc"
+    con.query(sql,function(error,resultado,fields){
+          if (error) {
+                console.log("Hubo un error en la consulta", error.message);
+                return res.status(500).send("Hubo un error en la consulta");
+          }
+          res.send(JSON.stringify(resultado.recordsets[0]));
+      });
+}
+
+
+
+
 function obtenerStockCritico(req,res){
       var sqlComprobanteMespasado="select NUM, TIPO from comp_emitidos where FECHA >= getdate()-30 AND TIPO='FEA' ORDER BY NUM asc";
       con.query(sqlComprobanteMespasado,function(error,resultado,fields){
@@ -156,6 +179,8 @@ function ofertasValvoline(req,res){
             res.send(JSON.stringify(resultado.recordsets[0]));
         });
 }
+
+
 function ofertasValvolineVarios(req,res){
       var sql="select cod_articulo as id, precio_vta as p, web_imagen as img, descrip_ARTI_WEB as web \
       from articulos a, listas_items i \
@@ -352,6 +377,7 @@ module.exports ={
     ventasPorAgrupacion:ventasPorAgrupacion,
     ventasGenerales:ventasGenerales,
     obtenerStockArticulo:obtenerStockArticulo,
-    obtenerAgrupacionDeArticulo:obtenerAgrupacionDeArticulo
+    obtenerAgrupacionDeArticulo:obtenerAgrupacionDeArticulo,
+    remateMercaderia:remateMercaderia
 
 }
