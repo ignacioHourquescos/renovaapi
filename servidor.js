@@ -46,7 +46,8 @@ app.get('/ventasPorAgrupacion/',          controller.ventasPorAgrupacion);
 app.get('/ventasGenerales',               controller.ventasGenerales);     
 app.get('/obtenerStockArticulo',          controller.obtenerStockArticulo);       
 app.get('/obtenerAgrupacionDeArticulo',   controller.obtenerAgrupacionDeArticulo);       
-app.get('/remateMercaderia',              controller.remateMercaderia);       
+app.get('/remateMercaderia',              controller.remateMercaderia);    
+app.get('/clientesPorVendedor',           controller.clientesPorVendedor); 
 
 //app.use('/clientes' , clientesRouter);npo
 
