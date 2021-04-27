@@ -129,7 +129,7 @@ function obtenerStockCritico(req,res){
 
 
 function clientesPorVendedor(req,res){
-    var sql="select * from clientes WHERE CODI_VENDE='7' ORDER BY razon ASC;"
+    var sql="select razon from clientes WHERE CODI_VENDE='7' ORDER BY razon ASC;"
     con.query(sql,function(error,resultado,fields){
           if (error) {
                 console.log("Hubo un error en la consulta sql", error.message);
