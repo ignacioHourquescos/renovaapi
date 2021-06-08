@@ -12,3 +12,4 @@ const listas=[
 
 module.exports={
     listas:listas
+}
