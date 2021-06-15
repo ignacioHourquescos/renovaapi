@@ -56,16 +56,16 @@ function numberWithCommas(x) {
 	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 } 
 
-app.get('/ventasTotales', (req, res, next) =>{
-   let agrupationSales;
-   var sql = `factu_venta_arti_lista '20200101', '20200120', @agru_1=13`;
+// app.get('/ventasTotales', (req, res, next) =>{
+//    let agrupationSales;
+//    var sql = `factu_venta_arti_lista '20200101', '20200120', @agru_1=13`;
 
-   con.query(sql, function(error,resultado,fields){
-      agrupationSales = resultado.recordsets[0].reduce( (a,b)=> a+(b.costo.replace(/,/g, '')), 0);
-      console.log(resultado.recordsets[0]);
-      res.send(agrupationSales);
-   });
-})
+//    con.query(sql, function(error,resultado,fields){
+//       agrupationSales = resultado.recordsets[0].reduce( (a,b)=> a+(b.costo.replace(/,/g, '')), 0);
+//       console.log(resultado.recordsets[0]);
+//       res.send(agrupationSales);
+//    });
+// })
 
 
 
