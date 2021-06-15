@@ -10,4 +10,6 @@ const listas=[
     {"codigo":8,    "descripcion":"RAMA",           "mes2":"Junio", "mes":"Ultima Actualización:",   "aumento":"(El aumento fue: 3%)",               "descuento":""}
 ];
 
-export const listas = listas;
+module.exports={
+    listas:listas
+}
