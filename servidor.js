@@ -48,25 +48,42 @@ app.get('/ventasGenerales',               controller.ventasGenerales);
 app.get('/obtenerStockArticulo',          controller.obtenerStockArticulo);       
 app.get('/obtenerAgrupacionDeArticulo',   controller.obtenerAgrupacionDeArticulo);       
 app.get('/remateMercaderia',              controller.remateMercaderia);    
-app.get('/clientesPorVendedor',           controller.clientesPorVendedor); 
+app.get('/clientesPorVendedor',           controller.clientesPorVendedor);
+app.get('/getExpenses',                    controller.getExpenses); 
 
 //app.use('/clientes' , clientesRouter);npo
 
-function numberWithCommas(x) {
-	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-} 
+ app.get('/ventasTotales/:id', (req, res, next) =>{
+   var id=req.params.id;     
+    var sql = `factu_venta_arti_lista '20210501', '20210531', @agru_1=${id}`;
+    con.query(sql, function(error,result,fields){
+      let data=result.recordsets[0];
+      const canti = data.reduce((acumulator, current) => {return acumulator + current.canti_kilos;}, 0).toFixed(0);
+      const impor = data.reduce((acumulator, current) => {return acumulator + current.impor;}, 0).toFixed(0);
+      const costo = data.reduce((acumulator, current) => {return acumulator + current.costo;}, 0).toFixed(0);
+      const consolidatedData={canti, impor, costo}
+      // res.send(`<h1>${canti}</h1><h1>${impor}</h1><h1>${costo}</h1><h1>${impor-costo}</h1>`);
+      // res.send(`<h1>${canti}</h1><h1>${impor}</h1><h1>${costo}</h1><h1>${impor-costo}</h1>`);
+      res.send(JSON.stringify(consolidatedData));
 
-// app.get('/ventasTotales', (req, res, next) =>{
-//    let agrupationSales;
-//    var sql = `factu_venta_arti_lista '20200101', '20200120', @agru_1=13`;
+    });
+ }
+ )
 
-//    con.query(sql, function(error,resultado,fields){
-//       agrupationSales = resultado.recordsets[0].reduce( (a,b)=> a+(b.costo.replace(/,/g, '')), 0);
-//       console.log(resultado.recordsets[0]);
-//       res.send(agrupationSales);
-//    });
-// })
+ app.get('/ventasTotalesGeneral', (req, res, next) =>{
+    
+    var sql = `factu_venta_arti_lista '20210501', '20210531'`;
+    con.query(sql, function(error,result,fields){
+      let data=result.recordsets[0];
+      const canti = data.reduce((acumulator, current) => {return acumulator + current.canti_kilos;}, 0).toFixed(0);
+      const impor = data.reduce((acumulator, current) => {return acumulator + current.impor;}, 0).toFixed(0);
+      const costo = data.reduce((acumulator, current) => {return acumulator + current.costo;}, 0).toFixed(0);
+      const consolidatedData={canti, impor, costo}
+      res.send(JSON.stringify(consolidatedData));
 
+    });
+ }
+ )
 
 
 app.listen(PORT, function () {

@@ -1,6 +1,6 @@
 var con = require('../conexionbd');
 const constantes = require('../constantes');
-
+const fetch = require('node-fetch');
 
 function obtenerListas(req,res){
       res.send(JSON.stringify(constantes.listas));
@@ -371,6 +371,30 @@ function obtenerAgrupacionDeArticulo(req,res){
 
 }
 
+
+function getExpenses(req,res){
+   let agrupation = 4;
+   let concept= 0;
+   var array = [];
+   fetch('https://spreadsheets.google.com/feeds/list/1fs4IueRVxWYz_pFKiE-hEpMJmvFdfaMxxJP8bSpkmAg/' + agrupation + '/public/full?alt=json')
+
+			.then(response => response.json())
+
+			.then(data => {
+				var data2 = data.feed.entry;
+				array.push({
+					"salarios":          data2[0].gsx$mayo.$t,
+               "fijos":             data2[1].gsx$mayo.$t,
+               "extraordinarios":   data2[2].gsx$mayo.$t,
+               "total":             data2[3].gsx$mayo.$t
+				
+				});
+            res.send(JSON.stringify(array))
+			})
+}
+
+
+
 module.exports ={
     obtenerListas:obtenerListas,
     obtenerListaDetalle:obtenerListaDetalle,
@@ -392,6 +416,7 @@ module.exports ={
     obtenerStockArticulo:obtenerStockArticulo,
     obtenerAgrupacionDeArticulo:obtenerAgrupacionDeArticulo,
     remateMercaderia:remateMercaderia,
-    clientesPorVendedor:clientesPorVendedor
+    clientesPorVendedor:clientesPorVendedor,
+    getExpenses:getExpenses
 
 }
