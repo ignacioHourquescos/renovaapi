@@ -376,22 +376,75 @@ function getExpenses(req,res){
    let agrupation = 4;
    let concept= 0;
    var array = [];
+   var mes = req.params.mes; 
+
    fetch('https://spreadsheets.google.com/feeds/list/1fs4IueRVxWYz_pFKiE-hEpMJmvFdfaMxxJP8bSpkmAg/' + agrupation + '/public/full?alt=json')
 
 			.then(response => response.json())
 
 			.then(data => {
 				var data2 = data.feed.entry;
+            if(mes == '01'){
 				array.push({
-					"salarios":          data2[0].gsx$mayo.$t,
-               "fijos":             data2[1].gsx$mayo.$t,
-               "extraordinarios":   data2[2].gsx$mayo.$t,
-               "total":             data2[3].gsx$mayo.$t
-				
+					"salarios":          data2[0].gsx$enero.$t,
+               "fijos":             data2[1].gsx$enero.$t,
+               "extraordinarios":   data2[2].gsx$enero.$t,
+               "total":             data2[3].gsx$enero.$t
 				});
+            }else if(mes=='02'){
+            array.push({
+					"salarios":          data2[0].gsx$febrero.$t,
+               "fijos":             data2[1].gsx$febrero.$t,
+               "extraordinarios":   data2[2].gsx$febrero.$t,
+               "total":             data2[3].gsx$febrero.$t
+				   });
+            }else if(mes=='03'){
+               array.push({
+                  "salarios":          data2[0].gsx$marzo.$t,
+                  "fijos":             data2[1].gsx$marzo.$t,
+                  "extraordinarios":   data2[2].gsx$marzo.$t,
+                  "total":             data2[3].gsx$marzo.$t
+                  });
+            }else if(mes=='04'){
+               array.push({
+                  "salarios":          data2[0].gsx$abril.$t,
+                  "fijos":             data2[1].gsx$abril.$t,
+                  "extraordinarios":   data2[2].gsx$abril.$t,
+                  "total":             data2[3].gsx$abril.$t
+                  });
+            }else if(mes=='05'){
+               array.push({
+                  "salarios":          data2[0].gsx$mayo.$t,
+                  "fijos":             data2[1].gsx$mayo.$t,
+                  "extraordinarios":   data2[2].gsx$mayo.$t,
+                  "total":             data2[3].gsx$mayo.$t
+                  });
+            }else if(mes=='06'){
+               array.push({
+                  "salarios":          data2[0].gsx$junio.$t,
+                  "fijos":             data2[1].gsx$junio.$t,
+                  "extraordinarios":   data2[2].gsx$junio.$t,
+                  "total":             data2[3].gsx$junio.$t
+                  });
+            }else if(mes=='07'){
+               array.push({
+                  "salarios":          data2[0].gsx$julio.$t,
+                  "fijos":             data2[1].gsx$julio.$t,
+                  "extraordinarios":   data2[2].gsx$julio.$t,
+                  "total":             data2[3].gsx$julio.$t
+                  });
+            }
+
+
+
+
+
             res.send(JSON.stringify(array))
 			})
 }
+
+
+//aux setting month for gogole sheets
 
 
 

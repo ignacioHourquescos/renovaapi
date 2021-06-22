@@ -49,13 +49,16 @@ app.get('/obtenerStockArticulo',          controller.obtenerStockArticulo);
 app.get('/obtenerAgrupacionDeArticulo',   controller.obtenerAgrupacionDeArticulo);       
 app.get('/remateMercaderia',              controller.remateMercaderia);    
 app.get('/clientesPorVendedor',           controller.clientesPorVendedor);
-app.get('/getExpenses',                    controller.getExpenses); 
+app.get('/getExpenses/:mes',                    controller.getExpenses); 
 
 //app.use('/clientes' , clientesRouter);npo
 
- app.get('/ventasTotales/:id', (req, res, next) =>{
-   var id=req.params.id;     
-    var sql = `factu_venta_arti_lista '20210501', '20210531', @agru_1=${id}`;
+ app.get('/ventasTotales/:id&:mes', (req, res, next) =>{
+   var id=req.params.id;
+   var mes = req.params.mes; 
+   var days = daysInMonth(mes,2021);
+
+   var sql = `factu_venta_arti_lista '2021${mes}01', '2021${mes}${days}', @agru_1=${id}`;
     con.query(sql, function(error,result,fields){
       let data=result.recordsets[0];
       const canti = data.reduce((acumulator, current) => {return acumulator + current.canti_kilos;}, 0).toFixed(0);
@@ -70,9 +73,12 @@ app.get('/getExpenses',                    controller.getExpenses);
  }
  )
 
- app.get('/ventasTotalesGeneral', (req, res, next) =>{
-    
-    var sql = `factu_venta_arti_lista '20210501', '20210531'`;
+ app.get('/ventasTotalesGeneral/:mes', (req, res, next) =>{
+   
+   var mes = req.params.mes; 
+   var days = daysInMonth(mes,2021); 
+
+    var sql = `factu_venta_arti_lista '2021${mes}01', '2021${mes}${days}'`;
     con.query(sql, function(error,result,fields){
       let data=result.recordsets[0];
       const canti = data.reduce((acumulator, current) => {return acumulator + current.canti_kilos;}, 0).toFixed(0);
@@ -84,6 +90,14 @@ app.get('/getExpenses',                    controller.getExpenses);
     });
  }
  )
+
+
+ //Auxiliar functions
+ function daysInMonth (month, year) {
+   return new Date(year, month, 0).getDate();
+}
+
+
 
 
 app.listen(PORT, function () {
