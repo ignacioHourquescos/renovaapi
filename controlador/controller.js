@@ -434,15 +434,22 @@ function getExpenses(req,res){
                   "total":             data2[3].gsx$julio.$t
                   });
             }
-
-
-
-
-
-            res.send(JSON.stringify(array))
+         res.send(JSON.stringify(array))
 			})
 }
 
+
+function validateUser(req,res){
+   let password = req.body.password;
+   console.log("aca esta el password" +password);
+   if(password=="soler4963")
+
+          res.status(201).json({ message: 'Created user!' });
+   else{
+      res.status(422).json({message: 'Invlaaaaid password'});
+   }
+
+}
 
 //aux setting month for gogole sheets
 
@@ -470,6 +477,7 @@ module.exports ={
     obtenerAgrupacionDeArticulo:obtenerAgrupacionDeArticulo,
     remateMercaderia:remateMercaderia,
     clientesPorVendedor:clientesPorVendedor,
-    getExpenses:getExpenses
+    getExpenses:getExpenses,
+    validateUser:validateUser
 
 }

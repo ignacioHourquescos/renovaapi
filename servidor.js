@@ -49,7 +49,8 @@ app.get('/obtenerStockArticulo',          controller.obtenerStockArticulo);
 app.get('/obtenerAgrupacionDeArticulo',   controller.obtenerAgrupacionDeArticulo);       
 app.get('/remateMercaderia',              controller.remateMercaderia);    
 app.get('/clientesPorVendedor',           controller.clientesPorVendedor);
-app.get('/getExpenses/:mes',                    controller.getExpenses); 
+app.get('/getExpenses/:mes',              controller.getExpenses); 
+app.post('/validateUser',                 controller.validateUser);
 
 //app.use('/clientes' , clientesRouter);npo
 
@@ -74,11 +75,9 @@ app.get('/getExpenses/:mes',                    controller.getExpenses);
  )
 
  app.get('/ventasTotalesGeneral/:mes', (req, res, next) =>{
-   
    var mes = req.params.mes; 
    var days = daysInMonth(mes,2021); 
-
-    var sql = `factu_venta_arti_lista '2021${mes}01', '2021${mes}${days}'`;
+   var sql = `factu_venta_arti_lista '2021${mes}01', '2021${mes}${days}'`;
     con.query(sql, function(error,result,fields){
       let data=result.recordsets[0];
       const canti = data.reduce((acumulator, current) => {return acumulator + current.canti_kilos;}, 0).toFixed(0);
@@ -90,6 +89,9 @@ app.get('/getExpenses/:mes',                    controller.getExpenses);
     });
  }
  )
+
+
+ 
 
 
  //Auxiliar functions
