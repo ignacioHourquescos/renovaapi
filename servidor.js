@@ -60,17 +60,19 @@ app.post('/validateUser',                 controller.validateUser);
    var days = daysInMonth(mes,2021);
 
    var sql = `factu_venta_arti_lista '2021${mes}01', '2021${mes}${days}', @agru_1=${id}`;
-    con.query(sql, function(error,result,fields){
+   con.query(sql, function(error,result,fields){
       let data=result.recordsets[0];
-      const canti = data.reduce((acumulator, current) => {return acumulator + current.canti_kilos;}, 0).toFixed(0);
-      const impor = data.reduce((acumulator, current) => {return acumulator + current.impor;}, 0).toFixed(0);
-      const costo = data.reduce((acumulator, current) => {return acumulator + current.costo;}, 0).toFixed(0);
+      const canti = data.reduce(
+         (acumulator, current) => {return acumulator + current.canti_kilos;},  0).toFixed(0);
+      const impor = data.reduce(
+         (acumulator, current) => {return acumulator + current.impor;},        0).toFixed(0);
+      const costo = data.reduce(
+         (acumulator, current) => {return acumulator + current.costo;},        0).toFixed(0);
       const consolidatedData={canti, impor, costo}
       // res.send(`<h1>${canti}</h1><h1>${impor}</h1><h1>${costo}</h1><h1>${impor-costo}</h1>`);
       // res.send(`<h1>${canti}</h1><h1>${impor}</h1><h1>${costo}</h1><h1>${impor-costo}</h1>`);
       res.send(JSON.stringify(consolidatedData));
-
-    });
+   });
  }
  )
 

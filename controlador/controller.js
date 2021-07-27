@@ -441,12 +441,12 @@ function getExpenses(req,res){
 
 function validateUser(req,res){
    let password = req.body.password;
-   console.log("aca esta el password" +password);
-   if(password=="soler4963")
-
-          res.status(201).json({ message: 'Created user!' });
+   console.log("aca esta el password: " +password);
+   if(password=="4963"){
+          res.status(201).json({ message: 'Created user!',status:201 });
+}
    else{
-      res.status(422).json({message: 'Invlaaaaid password'});
+      res.status(422).json({message: 'Invlaaaaid password',status:422});
    }
 
 }
