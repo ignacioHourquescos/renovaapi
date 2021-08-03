@@ -433,7 +433,43 @@ function getExpenses(req,res){
                   "extraordinarios":   data2[2].gsx$julio.$t,
                   "total":             data2[3].gsx$julio.$t
                   });
-            }
+           }else if(mes=='08'){
+               array.push({
+                  "salarios":          data2[0].gsx$julio.$t,
+                  "fijos":             data2[1].gsx$julio.$t,
+                  "extraordinarios":   data2[2].gsx$julio.$t,
+                  "total":             data2[3].gsx$julio.$t
+                  });
+            }else if(mes=='09'){
+            array.push({
+               "salarios":          data2[0].gsx$julio.$t,
+               "fijos":             data2[1].gsx$julio.$t,
+               "extraordinarios":   data2[2].gsx$julio.$t,
+               "total":             data2[3].gsx$julio.$t
+               });
+         }       else if(mes=='10'){
+            array.push({
+               "salarios":          data2[0].gsx$julio.$t,
+               "fijos":             data2[1].gsx$julio.$t,
+               "extraordinarios":   data2[2].gsx$julio.$t,
+               "total":             data2[3].gsx$julio.$t
+               });
+         } else if(mes=='11'){
+            array.push({
+               "salarios":          data2[0].gsx$julio.$t,
+               "fijos":             data2[1].gsx$julio.$t,
+               "extraordinarios":   data2[2].gsx$julio.$t,
+               "total":             data2[3].gsx$julio.$t
+               });
+         }
+         else if(mes=='12'){
+            array.push({
+               "salarios":          data2[0].gsx$julio.$t,
+               "fijos":             data2[1].gsx$julio.$t,
+               "extraordinarios":   data2[2].gsx$julio.$t,
+               "total":             data2[3].gsx$julio.$t
+               });
+         }
          res.send(JSON.stringify(array))
 			})
 }
