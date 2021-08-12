@@ -6,10 +6,12 @@ var config = {
     password: 'Rnv_12345',
     server: '200.80.10.160',
     path:'/RPSISTEMAS',
-    port:  50128,
+    port:  50322,
     database: 'factu_renova',
     encrypt: false
 };
+
+
 
 
 var connection = sql.connect(config, function (err){
