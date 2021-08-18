@@ -378,100 +378,108 @@ function getExpenses(req,res){
    var array = [];
    var mes = req.params.mes; 
 
-   fetch('https://spreadsheets.google.com/feeds/list/1fs4IueRVxWYz_pFKiE-hEpMJmvFdfaMxxJP8bSpkmAg/' + agrupation + '/public/full?alt=json')
+//     'https://spreadsheets.google.com/feeds/list/'+worksheet_id+'/'+tab_id+'/public/values?alt=json'
+//  'https://sheets.googleapis.com/v4/spreadsheets/'+worksheet_id+'/values/'+tab_name+'?alt=json&key='+key-value'
+
+//    fetch('https://spreadsheets.google.com/feeds/list/1fs4IueRVxWYz_pFKiE-hEpMJmvFdfaMxxJP8bSpkmAg/' + agrupation + '/public/full?alt=json')AIzaSyC4qg3Mvjc5kFuVenzqV4aLnXBuBFwWLTM
+   fetch('https://sheets.googleapis.com/v4/spreadsheets/1fs4IueRVxWYz_pFKiE-hEpMJmvFdfaMxxJP8bSpkmAg/values/Resumen?alt=json&key=AIzaSyC4qg3Mvjc5kFuVenzqV4aLnXBuBFwWLTM')
 
 			.then(response => response.json())
 
 			.then(data => {
-				var data2 = data.feed.entry;
+            
+            console.log(data);
+			
             if(mes == '01'){
+               console.log("aca esta el mes")
 				array.push({
-					"salarios":          data2[0].gsx$enero.$t,
-               "fijos":             data2[1].gsx$enero.$t,
-               "extraordinarios":   data2[2].gsx$enero.$t,
-               "total":             data2[3].gsx$enero.$t
+					"salarios":          data.values[1][1],
+               "fijos":             data.values[2][1],
+               "extraordinarios":   data.values[3][1],
+               "total":             data.values[4][1]
 				});
             }else if(mes=='02'){
             array.push({
-					"salarios":          data2[0].gsx$febrero.$t,
-               "fijos":             data2[1].gsx$febrero.$t,
-               "extraordinarios":   data2[2].gsx$febrero.$t,
-               "total":             data2[3].gsx$febrero.$t
+					"salarios":          data.values[1][2],
+               "fijos":             data.values[2][2],
+               "extraordinarios":   data.values[3][2],
+               "total":             data.values[4][2]
 				   });
             }else if(mes=='03'){
                array.push({
-                  "salarios":          data2[0].gsx$marzo.$t,
-                  "fijos":             data2[1].gsx$marzo.$t,
-                  "extraordinarios":   data2[2].gsx$marzo.$t,
-                  "total":             data2[3].gsx$marzo.$t
+                  "salarios":          data.values[1][3],
+                  "fijos":             data.values[2][3],
+                  "extraordinarios":   data.values[3][3],
+                  "total":             data.values[4][3]
                   });
             }else if(mes=='04'){
                array.push({
-                  "salarios":          data2[0].gsx$abril.$t,
-                  "fijos":             data2[1].gsx$abril.$t,
-                  "extraordinarios":   data2[2].gsx$abril.$t,
-                  "total":             data2[3].gsx$abril.$t
+                  "salarios":          data.values[1][4],
+                  "fijos":             data.values[2][4],
+                  "extraordinarios":   data.values[3][4],
+                  "total":             data.values[4][4]
                   });
             }else if(mes=='05'){
                array.push({
-                  "salarios":          data2[0].gsx$mayo.$t,
-                  "fijos":             data2[1].gsx$mayo.$t,
-                  "extraordinarios":   data2[2].gsx$mayo.$t,
-                  "total":             data2[3].gsx$mayo.$t
+                  "salarios":          data.values[1][5],
+                  "fijos":             data.values[2][5],
+                  "extraordinarios":   data.values[3][5],
+                  "total":             data.values[4][5]
                   });
             }else if(mes=='06'){
                array.push({
-                  "salarios":          data2[0].gsx$junio.$t,
-                  "fijos":             data2[1].gsx$junio.$t,
-                  "extraordinarios":   data2[2].gsx$junio.$t,
-                  "total":             data2[3].gsx$junio.$t
+                  "salarios":          data.values[1][6],
+                  "fijos":             data.values[2][6],
+                  "extraordinarios":   data.values[3][6],
+                  "total":             data.values[4][6]
                   });
             }else if(mes=='07'){
                array.push({
-                  "salarios":          data2[0].gsx$julio.$t,
-                  "fijos":             data2[1].gsx$julio.$t,
-                  "extraordinarios":   data2[2].gsx$julio.$t,
-                  "total":             data2[3].gsx$julio.$t
+                  "salarios":          data.values[1][7],
+                  "fijos":             data.values[2][7],
+                  "extraordinarios":   data.values[3][7],
+                  "total":             data.values[4][7]
                   });
            }else if(mes=='08'){
                array.push({
-                  "salarios":          data2[0].gsx$agosto.$t,
-                  "fijos":             data2[1].gsx$agosto.$t,
-                  "extraordinarios":   data2[2].gsx$agosto.$t,
-                  "total":             data2[3].gsx$agosto.$t
+                  "salarios":          data.values[1][8],
+                  "fijos":             data.values[2][8],
+                  "extraordinarios":   data.values[3][8],
+                  "total":             data.values[4][8]
                   });
             }else if(mes=='09'){
             array.push({
-               "salarios":          data2[0].gsx$septiembre.$t,
-               "fijos":             data2[1].gsx$septiembre.$t,
-               "extraordinarios":   data2[2].gsx$septiembre.$t,
-               "total":             data2[3].gsx$septiembre.$t
+               "salarios":          data.values[1][9],
+               "fijos":             data.values[2][9],
+               "extraordinarios":   data.values[3][9],
+               "total":             data.values[4][9]
                });
          }       else if(mes=='10'){
             array.push({
-               "salarios":          data2[0].gsx$octubre.$t,
-               "fijos":             data2[1].gsx$octubre.$t,
-               "extraordinarios":   data2[2].gsx$octubre.$t,
-               "total":             data2[3].gsx$octubre.$t
+               "salarios":          data.values[1][10],
+               "fijos":             data.values[2][10],
+               "extraordinarios":   data.values[3][10],
+               "total":             data.values[4][10]
                });
          } else if(mes=='11'){
             array.push({
-               "salarios":          data2[0].gsx$noviembre.$t,
-               "fijos":             data2[1].gsx$noviembre.$t,
-               "extraordinarios":   data2[2].gsx$noviembre.$t,
-               "total":             data2[3].gsx$noviembre.$t
+               "salarios":          data.values[1][11],
+               "fijos":             data.values[2][11],
+               "extraordinarios":   data.values[3][11],
+               "total":             data.values[4][11]
                });
          }
          else if(mes=='12'){
             array.push({
-               "salarios":          data2[0].gsx$diciembre.$t,
-               "fijos":             data2[1].gsx$diciembre.$t,
-               "extraordinarios":   data2[2].gsx$diciembre.$t,
-               "total":             data2[3].gsx$diciembre.$t
+               "salarios":          data.values[1][12],
+               "fijos":             data.values[2][12],
+               "extraordinarios":   data.values[3][12],
+               "total":             data.values[4][12]
                });
          }
          res.send(JSON.stringify(array))
 			})
+         console.log(array);
 }
 
 
