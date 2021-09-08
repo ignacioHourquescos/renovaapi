@@ -50,6 +50,7 @@ app.get('/obtenerAgrupacionDeArticulo',   controller.obtenerAgrupacionDeArticulo
 app.get('/remateMercaderia',              controller.remateMercaderia);    
 app.get('/clientesPorVendedor',           controller.clientesPorVendedor);
 app.get('/getExpenses/:mes',              controller.getExpenses); 
+app.get('/stockNegativo',                 controller.stockNegativo); 
 app.post('/validateUser',                 controller.validateUser);
 
 //app.use('/clientes' , clientesRouter);npo
@@ -76,6 +77,32 @@ app.post('/validateUser',                 controller.validateUser);
  }
  )
 
+ app.get('/ventasHistoricasPorAgrupacion/:id&:mes&:anio', (req, res, next) =>{
+   var id=req.params.id;
+   var mes = req.params.mes; 
+   var anio= req.params.anio;
+   var days = daysInMonth(mes,anio);
+
+   var sql = `factu_venta_arti_lista '${anio}${mes}01', '${anio}${mes}${days}', @agru_1=${id}`;
+   con.query(sql, function(error,result,fields){
+      let data=result.recordsets[0];
+      const canti = data.reduce(
+         (acumulator, current) => {return acumulator + current.canti_kilos;},  0).toFixed(0);
+      const impor = data.reduce(
+         (acumulator, current) => {return acumulator + current.impor;},        0).toFixed(0);
+      const costo = data.reduce(
+         (acumulator, current) => {return acumulator + current.costo;},        0).toFixed(0);
+      const consolidatedData={canti, impor, costo}
+      // res.send(`<h1>${canti}</h1><h1>${impor}</h1><h1>${costo}</h1><h1>${impor-costo}</h1>`);
+      // res.send(`<h1>${canti}</h1><h1>${impor}</h1><h1>${costo}</h1><h1>${impor-costo}</h1>`);
+      res.send(JSON.stringify(consolidatedData));
+   });
+ }
+ )
+
+
+
+ 
  app.get('/ventasTotalesGeneral/:mes', (req, res, next) =>{
    var mes = req.params.mes; 
    var days = daysInMonth(mes,2021); 
