@@ -265,7 +265,7 @@ function ofertasTotal(req,res){
       or cod_articulo='INEOFIRST4'\
       or cod_articulo='EVO500D/15W40/4'\
       or cod_articulo='GEAR8/75W80/1'\
-      or cod_articulo='GLACEL/AMA/1'\
+      or cod_articulo='GLACELF/AMA/1'\
       or cod_articulo='GLACELF/ROJO/1'\)"
       con.query(sql,function(error,resultado,fields){
             if (error) {
