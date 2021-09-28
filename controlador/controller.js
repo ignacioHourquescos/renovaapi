@@ -513,10 +513,10 @@ function validateUser(req,res){
 
 
 function ultimasVentas(req,res){
-   var fechaDesde= req.query.fechaDesde;
-   var fechaHasta=req.query.fechaHasta;
+   var numCliente= req.query.numCliente;
+
    var clientArray;
-   let clietnes = 'select NUM_CLIENTE, RAZON, FECHA_ALTA, CODI_VENDE from clientes where FECHA_ALTA >= getdate()-20 AND CODI_VENDE!=20  ORDER BY FECHA_ALTA ASC;'
+   let clietnes = `select RAZON, LUGAR_ENTREGA, CUIT from clientes where NUM_CLIENTE='${numCliente}';`
    
    con.query(clietnes,function(error,resultado,fields){
       if (error) {
