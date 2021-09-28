@@ -511,9 +511,23 @@ function validateUser(req,res){
 
 }
 
-//aux setting month for gogole sheets
 
+function ultimasVentas(req,res){
+   var fechaDesde= req.query.fechaDesde;
+   var fechaHasta=req.query.fechaHasta;
+   var clientArray;
+   let clietnes = 'select NUM_CLIENTE, RAZON, FECHA_ALTA, CODI_VENDE from clientes where FECHA_ALTA >= getdate()-20 AND CODI_VENDE!=20  ORDER BY FECHA_ALTA ASC;'
+   
+   con.query(clietnes,function(error,resultado,fields){
+      if (error) {
+            console.log("Hubo un error en la consulta", error.message);
+            return res.status(500).send("Hubo un error en la consulta");
+      }
+     
+      res.send(JSON.stringify(resultado.recordsets[0]))
+});
 
+}
 
 module.exports ={
     obtenerListas:obtenerListas,
@@ -539,6 +553,7 @@ module.exports ={
     clientesPorVendedor:clientesPorVendedor,
     getExpenses:getExpenses,
     validateUser:validateUser,
-    stockNegativo:stockNegativo
+    stockNegativo:stockNegativo,
+    ultimasVentas:ultimasVentas,
 
 }
