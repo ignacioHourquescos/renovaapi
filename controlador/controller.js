@@ -512,11 +512,12 @@ function validateUser(req,res){
 }
 
 
+
 function ultimasVentas(req,res){
    var numCliente= req.query.numCliente;
 
    var clientArray;
-   let clietnes = `select RAZON, LUGAR_ENTREGA, CUIT from clientes where NUM_CLIENTE='${numCliente}';`
+   let clietnes = `select RAZON, CUIT, LOCALIDAD, PROVINCIA, DOMICILIO, CP from clientes where NUM_CLIENTE='${numCliente}';`
    
    con.query(clietnes,function(error,resultado,fields){
       if (error) {
