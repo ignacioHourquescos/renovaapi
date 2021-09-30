@@ -517,15 +517,41 @@ function ultimasVentas(req,res){
    var numCliente= req.query.numCliente;
 
    var clientArray;
-   let clietnes = `select RAZON, CUIT, LOCALIDAD, PROVINCIA, DOMICILIO, CP from clientes where NUM_CLIENTE='${numCliente}';`
+   let clietnes = `select RAZON, CUIT, LUGAR_ENTREGA, LOCALIDAD, PROVINCIA, DOMICILIO, CP from clientes where NUM_CLIENTE='${numCliente}';`
    
    con.query(clietnes,function(error,resultado,fields){
       if (error) {
             console.log("Hubo un error en la consulta", error.message);
             return res.status(500).send("Hubo un error en la consulta");
       }
+      if(resultado.recordsets[0][0].PROVINCIA=='CF'){resultado.recordsets[0][0].PROVINCIA='CAPITAL FEDERAL'}
+      if(resultado.recordsets[0][0].PROVINCIA=='BA'){resultado.recordsets[0][0].PROVINCIA='BUENOS AIRES'}
+      if(resultado.recordsets[0][0].PROVINCIA=='CA'){resultado.recordsets[0][0].PROVINCIA='CAAMARCA'}
+      if(resultado.recordsets[0][0].PROVINCIA=='CHA'){resultado.recordsets[0][0].PROVINCIA='CHACO'}
+      if(resultado.recordsets[0][0].PROVINCIA=='CHU'){resultado.recordsets[0][0].PROVINCIA='CHUBUT'}
+      if(resultado.recordsets[0][0].PROVINCIA=='COR'){resultado.recordsets[0][0].PROVINCIA='CORDOBA'}
+      if(resultado.recordsets[0][0].PROVINCIA=='CO'){resultado.recordsets[0][0].PROVINCIA='CORRIENTES'}
+      if(resultado.recordsets[0][0].PROVINCIA=='ER'){resultado.recordsets[0][0].PROVINCIA='ENTRE RIOS'}
+      if(resultado.recordsets[0][0].PROVINCIA=='FO'){resultado.recordsets[0][0].PROVINCIA='FORMOSA'}
+      if(resultado.recordsets[0][0].PROVINCIA=='JU'){resultado.recordsets[0][0].PROVINCIA='JUJUY'}
+      if(resultado.recordsets[0][0].PROVINCIA=='LP'){resultado.recordsets[0][0].PROVINCIA='LA PAMPA'}
+      if(resultado.recordsets[0][0].PROVINCIA=='LR'){resultado.recordsets[0][0].PROVINCIA='LA RIOJA'}
+      if(resultado.recordsets[0][0].PROVINCIA=='ME'){resultado.recordsets[0][0].PROVINCIA='MENDOZA'}
+      if(resultado.recordsets[0][0].PROVINCIA=='MI'){resultado.recordsets[0][0].PROVINCIA='MISIONES'}
+      if(resultado.recordsets[0][0].PROVINCIA=='NE'){resultado.recordsets[0][0].PROVINCIA='NEUQUEN'}
+      if(resultado.recordsets[0][0].PROVINCIA=='RN'){resultado.recordsets[0][0].PROVINCIA='RIO NEGRO'}
+      if(resultado.recordsets[0][0].PROVINCIA=='SA'){resultado.recordsets[0][0].PROVINCIA='SALTA'}
+      if(resultado.recordsets[0][0].PROVINCIA=='SJ'){resultado.recordsets[0][0].PROVINCIA='SAN JUAN'}
+      if(resultado.recordsets[0][0].PROVINCIA=='SL'){resultado.recordsets[0][0].PROVINCIA='SAN LUIS'}
+      if(resultado.recordsets[0][0].PROVINCIA=='SC'){resultado.recordsets[0][0].PROVINCIA='SANTA CRUZ'}
+      if(resultado.recordsets[0][0].PROVINCIA=='SF'){resultado.recordsets[0][0].PROVINCIA='SANTA FE'}
+      if(resultado.recordsets[0][0].PROVINCIA=='SE'){resultado.recordsets[0][0].PROVINCIA='SANTIDO DEL ESTERO'}
+      if(resultado.recordsets[0][0].PROVINCIA=='TF'){resultado.recordsets[0][0].PROVINCIA='TIERRA DEL FUEGO'}
+      if(resultado.recordsets[0][0].PROVINCIA=='TUC'){resultado.recordsets[0][0].PROVINCIA='TUCUMAN'}
      
-      res.send(JSON.stringify(resultado.recordsets[0]))
+     
+      console.log(resultado.recordsets[0][0]);
+     res.send(JSON.stringify(resultado.recordsets[0]))
 });
 
 }
