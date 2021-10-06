@@ -5,9 +5,9 @@ const listas=[
     {"codigo":316,  "descripcion":"PETRONAS",       "mes2":"Mayo", "mes":"Ultima Actualización:",   "aumento":"(El aumento fue: promedio 5%)",          "descuento":""},         
     {"codigo":5,    "descripcion":"TOTAL",          "mes2":"Abril", "mes":"Ultima Actualización:",   "aumento":"(El aumento fue: 10%)",                "descuento":""},     
     {"codigo":14,   "descripcion":"LOCX",           "mes2":"Junio", "mes":"Ultima Actualización:",   "aumento":"(El aumento fue: 5%)",                   "descuento":""}, 
-    {"codigo":11,   "descripcion":"WAGNER LOCKHEED","mes2":"Mayo", "mes":"Ultima Actualización:",   "aumento":"(El aumento fue: 10%)",                 "descuento":""},
+    {"codigo":11,   "descripcion":"WAGNER LOCKHEED","mes2":"Septiembre", "mes":"Ultima Actualización:",   "aumento":"(El aumento fue: Desparejo) ",                 "descuento":""},
     {"codigo":13,   "descripcion":"TRICO",          "mes2":"Marzo", "mes":"Ultima Actualización:",   "aumento":"(El aumento fue: Desparejo) ",     "descuento":""},
-    {"codigo":8,    "descripcion":"RAMA",           "mes2":"Junio", "mes":"Ultima Actualización:",   "aumento":"(El aumento fue: 3%)",               "descuento":""}
+    {"codigo":8,    "descripcion":"RAMA",           "mes2":"Octubre", "mes":"Ultima Actualización:",   "aumento":"(El aumento fue: Desparejo)",               "descuento":""}
 ];
 
 module.exports={
