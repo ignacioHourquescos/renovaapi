@@ -1,6 +1,6 @@
 const listas=[
     {"codigo":1,    "descripcion":"FRAM",           "mes2":"Agosto", "mes":"Ultima Actualización:",   "aumento":"(El aumento fue: 12%)",                  "descuento":"Consultar descuento x cantidad"},
-    {"codigo":12,   "descripcion":"MOTUL",          "mes2":"Octubre", "mes":"Ultima Actualización:",   "aumento":"(El aumento fue: 2%)",                     "descuento":""},       
+    {"codigo":12,   "descripcion":"MOTUL",          "mes2":"SIN ENTREGA HASTA NUEVO AVISO", "mes":"Ultima Actualización:",   "aumento":"AUMENTO OCTUBRE HASTA EL MOMENTO: 2% + 21%)",                     "descuento":""},       
     {"codigo":3,    "descripcion":"VALVOLINE",      "mes2":"Octubre", "mes":"Ultima Actualización:",   "aumento":"(El aumento fue: Desparejo) ",    "descuento":""},      
     {"codigo":316,  "descripcion":"PETRONAS",       "mes2":"Septiembre", "mes":"Ultima Actualización:",   "aumento":"(El aumento fue: Desparejo)",          "descuento":""},         
     {"codigo":5,    "descripcion":"TOTAL",          "mes2":"Abril", "mes":"Ultima Actualización:",   "aumento":"(El aumento fue: 10%)",                "descuento":""},     
