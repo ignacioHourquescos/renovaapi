@@ -297,6 +297,41 @@ function ofertasSelenia(req,res){
             res.send(JSON.stringify(resultado.recordsets[0]));
         });
 }
+
+// function ofertasPuma(req,res){
+//    var sql="select cod_articulo as id, descrip_ARTI_WEB  as d, precio_vta as p, web_imagen as img \
+//    from articulos a, listas_items i \
+//    where a.cod_articulo=i.articulo \
+//    and i.lista_codi='2' \
+//    and activo='S'\
+//    and (cod_articulo='PE/15W40/4' \
+//    or cod_articulo='PE/20W50/4'\
+//    or cod_articulo='PE/10W40/4'\
+//    or cod_articulo='PE/5W40/4'\
+//    or cod_articulo='PE/5W40/4'\
+//    or cod_articulo='PARAFLU/VERDE'\
+//    or cod_articulo='TAMBOR/MACH5/15W40'\
+//    or cod_articulo='BALDE/MACH5/20W50')"
+//    con.query(sql,function(error,resultado,fields){
+//          if (error) {
+//                console.log("Hubo un error en la consulta", error.message);
+//                return res.status(500).send("Hubo un error en la consulta");
+//          }
+//          res.send(JSON.stringify(resultado.recordsets[0]));
+//      });
+// }
+
+function ofertasPuma(req,res){
+   var sql="select cod_articulo as id, descrip_ARTI_WEB  as web, cant_stock as stock, precio_vta as p, web_imagen as img  from articulos a, listas_items i where a.cod_articulo=i.articulo and i.lista_codi='2' and a.agru_1='27' and web_publi='S' and activo='S'";
+   con.query(sql,function(error,resultado,fields){
+         if (error) {
+               console.log("Hubo un error en la consulta", error.message);
+               return res.status(500).send("Hubo un error en la consulta");
+         }
+         res.send(JSON.stringify(resultado.recordsets[0]));
+     });
+}
+
 function ofertasVarios(req,res){
 
       var sql="select cod_articulo as id, descrip_ARTI_WEB  as web, precio_vta as p, web_imagen as img \
@@ -371,6 +406,20 @@ function obtenerStockArticulo(req,res){
             }
             res.send(JSON.stringify(resultado.recordsets[0]));
       });
+
+}
+
+
+function obtenerListadoArticulos(req,res){
+   var id= req.query.id;
+   var sql="select cod_articulo as id,  descrip_arti as d, desc_adicional as da, cant_stock as s, precio_uni as p from articulos"
+   con.query(sql,function(error,resultado,fields){
+         if (error) {
+               console.log("Hubo un error en la consulta", error.message);
+               return res.status(500).send("Hubo un erroraaa en la consulta");
+         }
+         res.send(JSON.stringify(resultado.recordsets[0]));
+   });
 
 }
 
@@ -556,6 +605,24 @@ function ultimasVentas(req,res){
 
 }
 
+
+function obtenerArticulo(req,res){
+   var id= req.params.id;
+   var sql="select * from articulos WHERE cod_articulo LIKE '%"+id+"%' OR DESCRIP_ARTI LIKE  '%"+id+"%' OR DESC_ADICIONAL LIKE  '%"+id+"%'"
+   con.query(sql,function(error,resultado,fields){
+         if (error) {
+               console.log("Hubo un error en la consulta", error.message);
+               return res.status(500).send("Hubo un erroraaa en la consulta");
+         }
+         console.log(resultado)
+         res.send(JSON.stringify(resultado.recordsets[0]));
+   });
+
+}
+
+
+ 
+
 module.exports ={
     obtenerListas:obtenerListas,
     obtenerListaDetalle:obtenerListaDetalle,
@@ -582,5 +649,8 @@ module.exports ={
     validateUser:validateUser,
     stockNegativo:stockNegativo,
     ultimasVentas:ultimasVentas,
+    obtenerArticulo:obtenerArticulo,
+    obtenerListadoArticulos:obtenerListadoArticulos,
+    ofertasPuma:ofertasPuma
 
 }

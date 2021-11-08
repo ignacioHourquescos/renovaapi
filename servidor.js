@@ -53,7 +53,9 @@ app.get('/getExpenses/:mes',              controller.getExpenses);
 app.get('/stockNegativo',                 controller.stockNegativo); 
 app.post('/validateUser',                 controller.validateUser);
 app.get('/ultimasVentas',                 controller.ultimasVentas);
-
+app.get('/obtenerArticulo/:id',     controller.obtenerArticulo);
+app.get('/obtenerListadoArticulos',     controller.obtenerListadoArticulos);
+app.get('/ofertasPuma',     controller.ofertasPuma);
 //app.use('/clientes' , clientesRouter);npo
 
  app.get('/ventasTotales/:id&:mes', (req, res, next) =>{
@@ -119,6 +121,7 @@ app.get('/ultimasVentas',                 controller.ultimasVentas);
     });
  }
  )
+
 
 
  
