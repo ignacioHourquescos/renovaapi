@@ -322,7 +322,7 @@ function ofertasSelenia(req,res){
 // }
 
 function ofertasPuma(req,res){
-   var sql="select cod_articulo as id, descrip_ARTI_WEB  as web, cant_stock as stock, precio_vta as p, web_imagen as img  from articulos a, listas_items i where a.cod_articulo=i.articulo and i.lista_codi='2' and a.agru_1='27' and web_publi='S' and activo='S'";
+   var sql="select cod_articulo as id, descrip_ARTI_WEB  as d, cant_stock as stock, precio_vta as p, web_imagen as img  from articulos a, listas_items i where a.cod_articulo=i.articulo and i.lista_codi='2' and a.agru_1='27' and web_publi='S' and activo='S'";
    con.query(sql,function(error,resultado,fields){
          if (error) {
                console.log("Hubo un error en la consulta", error.message);
@@ -549,7 +549,7 @@ function getExpenses(req,res){
 
 
 function validateUser(req,res){
-   let password = req.body.password;
+   let password = req.query.password;
    console.log("aca esta el password: " +password);
    if(password=="4963"){
           res.status(201).json({ message: 'Created user!',status:201 });

@@ -58,7 +58,7 @@ app.get('/obtenerListadoArticulos',     controller.obtenerListadoArticulos);
 app.get('/ofertasPuma',     controller.ofertasPuma);
 //app.use('/clientes' , clientesRouter);npo
 
- app.get('/ventasTotales/:id&:mes', (req, res, next) =>{
+ app.get('/ventasTotales/:id-:mes', (req, res, next) =>{
    var id=req.params.id;
    var mes = req.params.mes; 
    var days = daysInMonth(mes,2021);
