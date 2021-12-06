@@ -412,8 +412,7 @@ function obtenerStockArticulo(req,res){
 
 function obtenerListadoArticulos(req,res){
    var id= req.query.id;
-   var sql="select cod_articulo as id,  descrip_arti as d, desc_adicional as da, cant_stock as s,  precio_uni as p, um as UM from articulos WHERE ACTIVO='S' AND FECHA_ULTIMO_MOV IS NOT NULL ORDER BY FECHA_ULTIMO_MOV DESC"
-   con.query(sql,function(error,resultado,fields){
+   "select cod_articulo as id,  descrip_arti as d, desc_adicional as da, FECHA_ULTIMO_MOV as fecheult, cant_stock as s,  precio_uni as p, um as UM from articulos WHERE ACTIVO='S' AND FECHA_ULTIMO_MOV IS NOT NULL ORDER BY FECHA_ULTIMO_MOV DESC"   con.query(sql,function(error,resultado,fields){
          if (error) {
                console.log("Hubo un error en la consulta", error.message);
                return res.status(500).send("Hubo un erroraaa en la consulta");
