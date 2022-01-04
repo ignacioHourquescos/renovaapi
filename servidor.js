@@ -61,9 +61,11 @@ app.get('/ofertasPuma',     controller.ofertasPuma);
  app.get('/ventasTotales/:id-:mes', (req, res, next) =>{
    var id=req.params.id;
    var mes = req.params.mes; 
-   var days = daysInMonth(mes,2021);
+   var year = new Date().getFullYear();
+   var days = daysInMonth(mes,year);
+  
 
-   var sql = `factu_venta_arti_lista '2021${mes}01', '2021${mes}${days}', @agru_1=${id}`;
+   var sql = `factu_venta_arti_lista '${year}${mes}01', '${year}${mes}${days}', @agru_1=${id}`;
    con.query(sql, function(error,result,fields){
       let data=result.recordsets[0];
       const canti = data.reduce(
@@ -79,6 +81,11 @@ app.get('/ofertasPuma',     controller.ofertasPuma);
    });
  }
  )
+
+
+
+
+
 
  app.get('/ventasHistoricasPorAgrupacion/:id&:mes&:anio', (req, res, next) =>{
    var id=req.params.id;
