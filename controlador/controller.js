@@ -411,8 +411,8 @@ function obtenerStockArticulo(req,res){
 
 
 function obtenerListadoArticulos(req,res){
-   var id= req.query.id;
-   var sql= "select cod_articulo as id,  descrip_arti as d, desc_adicional as da, FECHA_ULTIMO_MOV as fum, cant_stock as s,  precio_uni as p, um as UM from articulos WHERE ACTIVO='S' AND FECHA_ULTIMO_MOV IS NOT NULL ORDER BY FECHA_ULTIMO_MOV DESC;";
+
+   var sql= "select a.cod_articulo as id,  a.descrip_arti as d, a.desc_adicional as da, a.FECHA_ULTIMO_MOV as fum, a.cant_stock as s,  a.precio_uni as p, um as UM, i.precio_vta as pr from articulos  a join listas_items i on a.cod_articulo=i.articulo WHERE ACTIVO='S' AND FECHA_ULTIMO_MOV IS NOT NULL ORDER BY FECHA_ULTIMO_MOV DESC;";
       con.query(sql,function(error,resultado,fields){
          if (error) {
                console.log("Hubo un error en la consulta", error.message);
@@ -621,6 +621,18 @@ function obtenerArticulo(req,res){
 }
 
 
+const listadoClientes = (req,res) =>{
+   var sql="select num_cliente as n, lugar_entrega as le, gln as t, razon as id from clientes"
+   con.query(sql,function(error,resultado,fields){
+         if (error) {
+               console.log("Hubo un error en la consulta", error.message);
+               return res.status(500).send("Hubo un erroraaa en la consulta");
+         }
+         console.log(resultado)
+         res.send(JSON.stringify(resultado.recordsets[0]));
+   });
+}
+
  
 
 module.exports ={
@@ -651,6 +663,7 @@ module.exports ={
     ultimasVentas:ultimasVentas,
     obtenerArticulo:obtenerArticulo,
     obtenerListadoArticulos:obtenerListadoArticulos,
-    ofertasPuma:ofertasPuma
+    ofertasPuma:ofertasPuma,
+    listadoClientes:listadoClientes
 
 }
