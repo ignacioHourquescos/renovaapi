@@ -412,8 +412,11 @@ function obtenerStockArticulo(req,res){
 
 function obtenerListadoArticulos(req,res){
 
-   var sql= "select a.cod_articulo as id,  a.descrip_arti as d, a.desc_adicional as da, a.FECHA_ULTIMO_MOV as fum, a.cant_stock as s,  a.precio_uni as p, um as UM, i.precio_vta as pr from articulos  a join listas_items i on a.cod_articulo=i.articulo WHERE ACTIVO='S' AND FECHA_ULTIMO_MOV IS NOT NULL ORDER BY FECHA_ULTIMO_MOV DESC;";
-      con.query(sql,function(error,resultado,fields){
+   // var sql= "select a.cod_articulo as id,  a.descrip_arti as d, a.desc_adicional as da, a.FECHA_ULTIMO_MOV as fum, a.cant_stock as s,  a.precio_uni as p, um as UM, i.precio_vta as pr from articulos  a join listas_items i on a.cod_articulo=i.articulo WHERE ACTIVO='S' AND FECHA_ULTIMO_MOV IS NOT NULL ORDER BY FECHA_ULTIMO_MOV DESC;";
+      
+   var sql= "select a.cod_articulo as id,  a.descrip_arti as d, a.desc_adicional as da, a.FECHA_ULTIMO_MOV as fum, a.cant_stock as s,  a.precio_uni as p, um as UM, i.precio_vta as pr from articulos  a join listas_items i on a.cod_articulo=i.articulo WHERE ACTIVO='S' ORDER BY FECHA_ULTIMO_MOV DESC;";
+
+   con.query(sql,function(error,resultado,fields){
          if (error) {
                console.log("Hubo un error en la consulta", error.message);
                return res.status(500).send("Hubo un erroraaa en la consulta");
