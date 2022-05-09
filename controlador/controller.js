@@ -182,31 +182,14 @@ function informacionPedidosFecha(req,res){
       })
 }
 function ofertasValvoline(req,res){
-  var sql="select cod_articulo as id, descrip_ARTI_WEB as d, precio_vta as p, web_imagen as img  from articulos a, listas_items i where a.cod_articulo=i.articulo and i.lista_codi='2' and a.agru_1='3' and activo='S' and web_publi='S";
-
-      // var sql="select cod_articulo as id,  precio_vta as p, web_imagen as img, descrip_ARTI_WEB as web \
-      // from articulos a, listas_items i \
-      // where a.cod_articulo=i.articulo \
-      // and i.lista_codi='2' \
-      // and activo='S'\
-      // and (cod_articulo='03VA779' \
-      // or cod_articulo='06VA381'\
-      // or cod_articulo='04VA153'\
-      // or cod_articulo='06VA559'\
-      // or cod_articulo='06VA301'\
-      // or cod_articulo='03VA567'\
-      // or cod_articulo='01VA150'\
-      // or cod_articulo='01VA156'\
-      // or cod_articulo='01VA299'\
-      // or cod_articulo='01VA173'\
-      // or cod_articulo='01VA174') order BY ID desc"
-      con.query(sql,function(error,resultado,fields){
-            if (error) {
-                  console.log("Hubo un error en la consulta", error.message);
-                  return res.status(500).send("Hubo un error en la consulta");
-            }
-            res.send(JSON.stringify(resultado.recordsets[0]));
-        });
+  var sql="select cod_articulo as id, descrip_ARTI_WEB as d, precio_vta as p, web_imagen as img  from articulos a, listas_items i where a.cod_articulo=i.articulo and i.lista_codi='2' and a.agru_1='3' and activo='S' and web_publi='S'";
+  con.query(sql,function(error,resultado,fields){
+        if (error) {
+              console.log("Hubo un error en la consulta", error.message);
+              return res.status(500).send("Hubo un error en la consulta");
+        }
+        res.send(JSON.stringify(resultado.recordsets[0]));
+    });
 }
 
 
