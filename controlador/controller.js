@@ -182,7 +182,7 @@ function informacionPedidosFecha(req,res){
       })
 }
 function ofertasValvoline(req,res){
-  var sql="select cod_articulo as id, descrip_ARTI_WEB as d, precio_vta as p, web_imagen as img  from articulos a, listas_items i where a.cod_articulo=i.articulo and i.lista_codi='2' and a.agru_1='3' and activo='S'";
+  var sql="select cod_articulo as id, descrip_ARTI_WEB as d, precio_vta as p, web_imagen as img  from articulos a, listas_items i where a.cod_articulo=i.articulo and i.lista_codi='2' and a.agru_1='3' and activo='S' and web_publi='S";
 
       // var sql="select cod_articulo as id,  precio_vta as p, web_imagen as img, descrip_ARTI_WEB as web \
       // from articulos a, listas_items i \
