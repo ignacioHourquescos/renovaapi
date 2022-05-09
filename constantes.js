@@ -7,7 +7,6 @@ const listas=[
     {"codigo":27,   "descripcion":"PUMA",           "mes2":"Abril", "mes":"Ultima Actualización:",   "aumento":"(El aumento fue: desparejo)",                   "descuento":""}, 
     {"codigo":14,   "descripcion":"LOCX",           "mes2":"Abril", "mes":"Ultima Actualización:",   "aumento":"(El aumento fue: 5%)",                   "descuento":""}, 
     {"codigo":11,   "descripcion":"WAGNER LOCKHEED","mes2":"Marzo", "mes":"Ultima Actualización:",   "aumento":"(El aumento fue: 5%) ",                 "descuento":""},
-    {"codigo":13,   "descripcion":"TRICO",          "mes2":"Marzo", "mes":"Ultima Actualización:",   "aumento":"(El aumento fue: Desparejo) ",     "descuento":""},
     {"codigo":8,    "descripcion":"RAMA",           "mes2":"Abril", "mes":"Ultima Actualización:",   "aumento":"(El aumento fue: Desparejo)",               "descuento":""}
 ];
 
