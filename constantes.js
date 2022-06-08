@@ -51,12 +51,19 @@ const listas = [
 	{
 		codigo: 11,
 		descripcion: "WAGNER LOCKHEED",
-		mes2: "Marzo",
+		mes2: "Mayo",
 		mes: "Ultima Actualización:",
 		aumento: "(El aumento fue: 5%) ",
 		descuento: "",
 	},
-	// {"codigo":8,    "descripcion":"RAMA",           "mes2":"Mayo", "mes":"Ultima Actualización:",   "aumento":"(El aumento fue: 8-12%)",               "descuento":""}
+	{
+		codigo: 8,
+		descripcion: "RAMA",
+		mes2: "Junio",
+		mes: "Ultima Actualización:",
+		aumento: "(El aumento fue: desparejo)",
+		descuento: "",
+	},
 ];
 
 module.exports = {
