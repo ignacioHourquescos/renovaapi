@@ -35,7 +35,7 @@ const listas = [
 	{
 		codigo: 27,
 		descripcion: "PUMA",
-		mes2: "Mayo",
+		mes2: "Junio",
 		mes: "Ultima Actualización:",
 		aumento: "(El aumento fue: desparejo)",
 		descuento: "",
@@ -43,7 +43,7 @@ const listas = [
 	{
 		codigo: 14,
 		descripcion: "LOCX",
-		mes2: "Mayo",
+		mes2: "Junio",
 		mes: "Ultima Actualización:",
 		aumento: "(El aumento fue: 5%)",
 		descuento: "",
@@ -51,7 +51,7 @@ const listas = [
 	{
 		codigo: 11,
 		descripcion: "WAGNER LOCKHEED",
-		mes2: "Mayo",
+		mes2: "Junio",
 		mes: "Ultima Actualización:",
 		aumento: "(El aumento fue: 5%) ",
 		descuento: "",
