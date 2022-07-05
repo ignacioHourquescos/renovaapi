@@ -10,9 +10,9 @@ const listas = [
 	{
 		codigo: 12,
 		descripcion: "MOTUL",
-		mes2: "Junio",
+		mes2: "Julio",
 		mes: "Ultima Actualización:",
-		aumento: "(El aumento fue 4% lineal)",
+		aumento: "(El aumento fue 5% lineal)",
 		descuento: "",
 	},
 	{
@@ -26,9 +26,9 @@ const listas = [
 	{
 		codigo: 316,
 		descripcion: "PETRONAS",
-		mes2: "Mayo",
+		mes2: "Julio",
 		mes: "Ultima Actualización:",
-		aumento: "(El aumento fue: 6-25%)",
+		aumento: "(El aumento fue desparejo hasta: 5%)",
 		descuento: "",
 	},
 	// {"codigo":5,    "descripcion":"TOTAL",          "mes2":"Abril", "mes":"Ultima Actualización:",   "aumento":"(El aumento fue: 10%)",                "descuento":""},
@@ -59,9 +59,9 @@ const listas = [
 	{
 		codigo: 8,
 		descripcion: "RAMA",
-		mes2: "Junio",
+		mes2: "Julio",
 		mes: "Ultima Actualización:",
-		aumento: "(El aumento fue: desparejo)",
+		aumento: "(El aumento fue hasta: 3.5%)",
 		descuento: "",
 	},
 ];
