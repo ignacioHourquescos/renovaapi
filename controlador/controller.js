@@ -236,8 +236,8 @@ and activo='S'\
       or cod_articulo='4100/4'\
       or cod_articulo='8100/ECO/5'\
       or cod_articulo='8100/XPOWER/5'\
-      or cod_articulo='8100/ECOLITE/4'\
-      or cod_articulo='6100/5'\
+      or cod_articulo='8100/ECOLITE/5'\
+      or cod_articulo='SPE/5w40/5'\
       or cod_articulo='SPE/5W30/5'\
       or cod_articulo='4100/15W50/4')";
 	con.query(sql, function (error, resultado, fields) {
