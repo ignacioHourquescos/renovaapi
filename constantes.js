@@ -2,17 +2,17 @@ const listas = [
 	{
 		codigo: 1,
 		descripcion: "FRAM",
-		mes2: "Octubre",
+		mes2: "Noviembre",
 		mes: "Ultima Actualización:",
-		aumento: "(El aumento fue 6% promedio) ",
+		aumento: "(El aumento fue 5%) ",
 		descuento: "Consultar descuento x cantidad",
 	},
 	{
 		codigo: 12,
 		descripcion: "MOTUL",
-		mes2: "Octubre",
+		mes2: "Noviembre",
 		mes: "Ultima Actualización:",
-		aumento: "(El aumento fue 7% lineal)",
+		aumento: "(El aumento fue 6% lineal)",
 		descuento: "",
 	},
 	{
