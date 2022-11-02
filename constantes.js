@@ -43,7 +43,7 @@ const listas = [
 	{
 		codigo: 14,
 		descripcion: "LOCX",
-		mes2: "Julio",
+		mes2: "Agosto",
 		mes: "Ultima Actualización:",
 		aumento: "(El aumento fue: 7%)",
 		descuento: "",
@@ -51,17 +51,17 @@ const listas = [
 	{
 		codigo: 11,
 		descripcion: "WAGNER LOCKHEED",
-		mes2: "Septiembre",
+		mes2: "Noviembre",
 		mes: "Ultima Actualización:",
-		aumento: "(El aumento fue: 5%) ",
+		aumento: "(El aumento fue: 12%) ",
 		descuento: "",
 	},
 	{
 		codigo: 8,
 		descripcion: "RAMA",
-		mes2: "Octubre",
+		mes2: "Noviembre",
 		mes: "Ultima Actualización:",
-		aumento: "(El aumento fue hasta: 1%)",
+		aumento: "(El aumento fue hasta: 8%)",
 		descuento: "",
 	},
 ];
