@@ -4,7 +4,7 @@ const listas = [
 		descripcion: "FRAM",
 		mes2: "Noviembre",
 		mes: "Ultima Actualización:",
-		aumento: "(El aumento fue 5%) ",
+		aumento: "(El aumento fue 15%) ",
 		descuento: "Consultar descuento x cantidad",
 	},
 	{
@@ -18,9 +18,9 @@ const listas = [
 	{
 		codigo: 3,
 		descripcion: "VALVOLINE",
-		mes2: "Septiembre",
+		mes2: "Noviembre",
 		mes: "Ultima Actualización:",
-		aumento: "Desparejo",
+		aumento: "(El aumento fue 5% lineal)",
 		descuento: "",
 	},
 	{
@@ -43,9 +43,9 @@ const listas = [
 	{
 		codigo: 14,
 		descripcion: "LOCX",
-		mes2: "Agosto",
+		mes2: "Noviembre",
 		mes: "Ultima Actualización:",
-		aumento: "(El aumento fue: 7%)",
+		aumento: "(El aumento fue: 6%)",
 		descuento: "",
 	},
 	{
