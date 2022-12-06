@@ -18,9 +18,9 @@ const listas = [
 	{
 		codigo: 3,
 		descripcion: "VALVOLINE",
-		mes2: "Noviembre",
+		mes2: "Diciembre",
 		mes: "Ultima Actualización:",
-		aumento: "(El aumento fue 5% lineal)",
+		aumento: "(Hasta un 10%)",
 		descuento: "",
 	},
 	{
@@ -59,7 +59,7 @@ const listas = [
 	{
 		codigo: 8,
 		descripcion: "RAMA",
-		mes2: "Noviembre",
+		mes2: "Diciembre",
 		mes: "Ultima Actualización:",
 		aumento: "(El aumento fue hasta: 8%)",
 		descuento: "",
