@@ -59,7 +59,7 @@ const listas = [
 	{
 		codigo: 8,
 		descripcion: "RAMA",
-		mes2: "Diciembre",
+		mes2: "Febrero",
 		mes: "Ultima Actualización:",
 		aumento: "(El aumento fue hasta: 8%)",
 		descuento: "",
