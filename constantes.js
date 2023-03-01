@@ -10,17 +10,17 @@ const listas = [
 	{
 		codigo: 12,
 		descripcion: "MOTUL",
-		mes2: "Febrero",
+		mes2: "Marzo",
 		mes: "Ultima Actualización:",
-		aumento: "(El aumento fue 9% lineal)",
+		aumento: "(El aumento fue 7% lineal)",
 		descuento: "",
 	},
 	{
 		codigo: 3,
 		descripcion: "VALVOLINE",
-		mes2: "Febrero",
+		mes2: "Marzo",
 		mes: "Ultima Actualización:",
-		aumento: "(El aumentto fue: 6% promedio)",
+		aumento: "(El aumentto fue desparejo: 0-10%)",
 		descuento: "",
 	},
 	{
@@ -59,9 +59,9 @@ const listas = [
 	{
 		codigo: 8,
 		descripcion: "RAMA",
-		mes2: "Febrero",
+		mes2: "Marzo",
 		mes: "Ultima Actualización:",
-		aumento: "(El aumento fue hasta: 8%)",
+		aumento: "(El aumento fue hasta: 3%)",
 		descuento: "",
 	},
 ];
