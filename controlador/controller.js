@@ -547,11 +547,23 @@ function getExpenses(req, res) {
 
 function validateUser(req, res) {
 	let password = req.query.password;
-	console.log("aca esta el password: " + password);
+	console.log(password);
+
 	if (password == "4963") {
-		res.status(201).json({ message: "Created user!", status: 201 });
+		res
+			.status(201)
+			.json({ message: "Validated user", status: 201, type: "internal" });
+	} else if (password == "311") {
+		res.status(201).json({
+			message: "Validated user",
+			status: 201,
+			type: "client",
+			clientName: "ELIAS YANI S.R.L.",
+		});
 	} else {
-		res.status(422).json({ message: "Invlaaaaid password", status: 422 });
+		res
+			.status(422)
+			.json({ message: "invalid password", status: 422, type: false });
 	}
 }
 
