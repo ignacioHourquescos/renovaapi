@@ -43,9 +43,9 @@ const listas = [
 	{
 		codigo: 14,
 		descripcion: "LOCX",
-		mes2: "Noviembre",
+		mes2: "Abril",
 		mes: "Ultima Actualización:",
-		aumento: "(El aumento fue: 6%)",
+		aumento: "(El aumento fue: 7%)",
 		descuento: "",
 	},
 	{
@@ -59,9 +59,9 @@ const listas = [
 	{
 		codigo: 8,
 		descripcion: "RAMA",
-		mes2: "Marzo",
+		mes2: "Abril",
 		mes: "Ultima Actualización:",
-		aumento: "(El aumento fue hasta: 3%)",
+		aumento: "(El aumento fue hasta: 11%)",
 		descuento: "",
 	},
 ];
