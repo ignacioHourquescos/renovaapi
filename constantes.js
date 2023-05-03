@@ -43,7 +43,7 @@ const listas = [
   {
     codigo: 14,
     descripcion: "LOCX",
-    mes2: "Abril",
+    mes2: "Mayo",
     mes: "Ultima Actualización:",
     aumento: "(El aumento fue: 7%)",
     descuento: "",
