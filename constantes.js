@@ -26,15 +26,9 @@ const listas = [
   {
     codigo: 316,
     descripcion: "PETRONAS",
-<<<<<<< HEAD
-    mes2: "Abril",
-    mes: "Ultima Actualización:",
-    aumento: "(El aumento fue: 7% promedio)",
-=======
     mes2: "Mayo",
     mes: "Ultima Actualización:",
     aumento: "(El aumento fue: 7%-18% promedio)",
->>>>>>> master
     descuento: "",
   },
   // {"codigo":5,    "descripcion":"TOTAL",          "mes2":"Abril", "mes":"Ultima Actualización:",   "aumento":"(El aumento fue: 10%)",                "descuento":""},
@@ -54,22 +48,6 @@ const listas = [
     aumento: "(El aumento fue: 7%)",
     descuento: "",
   },
-<<<<<<< HEAD
-  {
-    codigo: 11,
-    descripcion: "WAGNER LOCKHEED",
-    mes2: "Noviembre",
-    mes: "Ultima Actualización:",
-    aumento: "(El aumento fue: 12%) ",
-    descuento: "",
-  },
-  {
-    codigo: 8,
-    descripcion: "RAMA",
-    mes2: "Abril",
-    mes: "Ultima Actualización:",
-    aumento: "(El aumento fue hasta: 11%)",
-=======
   // {
   //   codigo: 11,
   //   descripcion: "WAGNER LOCKHEED",
@@ -84,7 +62,6 @@ const listas = [
     mes2: "Mayo",
     mes: "Ultima Actualización:",
     aumento: "(Aumento desparejo)",
->>>>>>> master
     descuento: "",
   },
 ];
