@@ -2,9 +2,9 @@ const listas = [
   {
     codigo: 1,
     descripcion: "FRAM",
-    mes2: "Mayo",
+    mes2: "Junio",
     mes: "Ultima Actualización:",
-    aumento: "(El aumento fue 7% lineal) ",
+    aumento: "(El aumento fue 9,5% lineal) ",
     descuento: "Consultar descuento x cantidad",
   },
   {
@@ -32,14 +32,6 @@ const listas = [
     descuento: "",
   },
   // {"codigo":5,    "descripcion":"TOTAL",          "mes2":"Abril", "mes":"Ultima Actualización:",   "aumento":"(El aumento fue: 10%)",                "descuento":""},
-  // {
-  // 	codigo: 27,
-  // 	descripcion: "PUMA",
-  // 	mes2: "Junio",
-  // 	mes: "Ultima Actualización:",
-  // 	aumento: "(El aumento fue: desparejo)",
-  // 	descuento: "",
-  // },
   {
     codigo: 14,
     descripcion: "LOCX",
@@ -48,14 +40,6 @@ const listas = [
     aumento: "(El aumento fue: 7%)",
     descuento: "",
   },
-  // {
-  //   codigo: 11,
-  //   descripcion: "WAGNER LOCKHEED",
-  //   mes2: "Noviembre",
-  //   mes: "Ultima Actualización:",
-  //   aumento: "(El aumento fue: 12%) ",
-  //   descuento: "",
-  // },
   {
     codigo: 8,
     descripcion: "RAMA",
