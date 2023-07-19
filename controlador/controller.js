@@ -703,9 +703,10 @@ const comprobantesVencidos = (req, res) => {
 };
 
 const generalValidateUser = async (req, res) => {
-	let password = req.query.password;
-	let numCliente = req.query.numCliente;
+	let password = req.body.password;
+	let numCliente = req.body.numCliente;
 	console.log("PASSWORD", password);
+	console.log("NUM CLIENTE", numCliente);
 	const sql = `select RAZON, CUIT, LUGAR_ENTREGA, LOCALIDAD, TELEFONO, PROVINCIA, DOMICILIO, CP from clientes where NUM_CLIENTE='${numCliente}';`;
 
 	try {
@@ -720,7 +721,8 @@ const generalValidateUser = async (req, res) => {
 			});
 		});
 
-		if (password == resultado.CUIT) {
+		console.log("CUIT", resultado.CUIT.toString());
+		if (password == resultado.CUIT.toString()) {
 			res.status(201).json({
 				status: 201,
 				type: "client",
@@ -730,7 +732,6 @@ const generalValidateUser = async (req, res) => {
 				city: resultado.LOCALIDAD,
 				phone: resultado.TELEFONO,
 			});
-			res.send(JSON.stringify(resultado));
 		} else {
 			res.status(401).send("Invalid password");
 		}
