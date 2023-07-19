@@ -702,6 +702,44 @@ const comprobantesVencidos = (req, res) => {
 	});
 };
 
+const generalValidateUser = async (req, res) => {
+	let password = req.query.password;
+	let numCliente = req.query.numCliente;
+	console.log("PASSWORD", password);
+	const sql = `select RAZON, CUIT, LUGAR_ENTREGA, LOCALIDAD, TELEFONO, PROVINCIA, DOMICILIO, CP from clientes where NUM_CLIENTE='${numCliente}';`;
+
+	try {
+		const resultado = await new Promise((resolve, reject) => {
+			con.query(sql, function (error, resultado, fields) {
+				if (error) {
+					console.log("Hubo un error en la consulta", error.message);
+					reject(error);
+				} else {
+					resolve(resultado.recordsets[0][0]);
+				}
+			});
+		});
+
+		if (password == resultado.CUIT) {
+			res.status(201).json({
+				status: 201,
+				type: "client",
+				name: resultado.RAZON,
+				id: resultado.CUIT,
+				address: resultado?.DOMICILIO,
+				city: resultado.LOCALIDAD,
+				phone: resultado.TELEFONO,
+			});
+			res.send(JSON.stringify(resultado));
+		} else {
+			res.status(401).send("Invalid password");
+		}
+	} catch (error) {
+		console.log("Hubo un error en la consulta", error.message);
+		res.status(500).send("Hubo un error en la consulta");
+	}
+};
+
 module.exports = {
 	obtenerListas: obtenerListas,
 	obtenerListaDetalle: obtenerListaDetalle,
@@ -733,4 +771,6 @@ module.exports = {
 	ofertasPuma: ofertasPuma,
 	listadoClientes: listadoClientes,
 	comprobantesVencidos: comprobantesVencidos,
+	generalValidateUser: generalValidateUser,
+	validateUser: validateUser,
 };

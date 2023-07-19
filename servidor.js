@@ -52,6 +52,7 @@ app.get("/clientesPorVendedor", controller.clientesPorVendedor);
 app.get("/getExpenses/:mes", controller.getExpenses);
 app.get("/stockNegativo", controller.stockNegativo);
 app.post("/validateUser/", controller.validateUser);
+app.post("/generalValidateUser/", controller.generalValidateUser);
 app.get("/ultimasVentas", controller.ultimasVentas);
 app.get("/obtenerArticulo/:id", controller.obtenerArticulo);
 app.get("/obtenerListadoArticulos", controller.obtenerListadoArticulos);
