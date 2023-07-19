@@ -707,7 +707,7 @@ const generalValidateUser = async (req, res) => {
 	let numCliente = req.body.numCliente;
 	console.log("PASSWORD", password);
 	console.log("NUM CLIENTE", numCliente);
-	const sql = `select RAZON, CUIT, LUGAR_ENTREGA, LOCALIDAD, TELEFONO, PROVINCIA, DOMICILIO, CP from clientes where NUM_CLIENTE='${numCliente}';`;
+	const sql = `select RAZON, CUIT, NUM_CLIENTE, LUGAR_ENTREGA, LOCALIDAD, TELEFONO, PROVINCIA, DOMICILIO, CP from clientes where NUM_CLIENTE='${numCliente}';`;
 
 	try {
 		const resultado = await new Promise((resolve, reject) => {
@@ -727,14 +727,38 @@ const generalValidateUser = async (req, res) => {
 				status: 201,
 				type: "client",
 				name: resultado.RAZON,
-				id: resultado.CUIT,
+				fiscalValue: resultado.CUIT,
 				address: resultado?.DOMICILIO,
 				city: resultado.LOCALIDAD,
 				phone: resultado.TELEFONO,
+				clientId: resultado.NUM_CLIENTE,
 			});
 		} else {
 			res.status(401).send("Invalid password");
 		}
+	} catch (error) {
+		console.log("Hubo un error en la consulta", error.message);
+		res.status(500).send("Hubo un error en la consulta");
+	}
+};
+
+const getClient = async (req, res) => {
+	let clientId = req.query.clientId;
+	console.log("Client ID", clientId);
+	const sql = `select * from clientes where NUM_CLIENTE='${clientId}';`;
+
+	try {
+		const resultado = await new Promise((resolve, reject) => {
+			con.query(sql, function (error, resultado, fields) {
+				if (error) {
+					console.log("Hubo un error en la consulta", error.message);
+					reject(error);
+				} else {
+					resolve(resultado.recordsets[0][0]);
+					res.status(200).json(resultado.recordsets[0][0]);
+				}
+			});
+		});
 	} catch (error) {
 		console.log("Hubo un error en la consulta", error.message);
 		res.status(500).send("Hubo un error en la consulta");
@@ -774,4 +798,5 @@ module.exports = {
 	comprobantesVencidos: comprobantesVencidos,
 	generalValidateUser: generalValidateUser,
 	validateUser: validateUser,
+	getClient: getClient,
 };

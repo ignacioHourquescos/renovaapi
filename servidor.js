@@ -59,6 +59,7 @@ app.get("/obtenerListadoArticulos", controller.obtenerListadoArticulos);
 app.get("/ofertasPuma", controller.ofertasPuma);
 app.get("/listadoClientes", controller.listadoClientes);
 app.get("/comprobantesVencidos/:nroCliente", controller.comprobantesVencidos);
+app.get("/getClient/", controller.getClient);
 //app.use('/clientes' , clientesRouter);npo
 
 app.get("/ventasTotales/:id-:mes", (req, res, next) => {
