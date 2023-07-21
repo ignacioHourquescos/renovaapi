@@ -765,6 +765,25 @@ const getClient = async (req, res) => {
 	}
 };
 
+const getClientVouchers = (req, res) => {
+	let clientId = req.query.clientId;
+	var sql = `SELECT *
+  FROM COMP_EMITIDOS
+  WHERE CLIENTE='${clientId}'
+      AND (TIPO='FEA' OR TIPO='FCN' OR TIPO='FEB')
+      AND FECHA >= DATEADD(DAY, -365, GETDATE())
+
+  ORDER BY FECHA;`;
+	con.query(sql, function (error, resultado, fields) {
+		if (error) {
+			console.log("Hubo un error en la consulta", error.message);
+			return res.status(500).send("Hubo un erroraaa en la consultaaa");
+		}
+		const filteredResult = console.log(resultado);
+		res.send(JSON.stringify(resultado.recordsets[0]));
+	});
+};
+
 module.exports = {
 	obtenerListas: obtenerListas,
 	obtenerListaDetalle: obtenerListaDetalle,
@@ -799,4 +818,5 @@ module.exports = {
 	generalValidateUser: generalValidateUser,
 	validateUser: validateUser,
 	getClient: getClient,
+	getClientVouchers: getClientVouchers,
 };
