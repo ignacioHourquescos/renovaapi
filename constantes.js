@@ -2,9 +2,9 @@ const listas = [
 	{
 		codigo: 1,
 		descripcion: "FRAM",
-		mes2: "Julio",
+		mes2: "Agosto",
 		mes: "Ultima Actualización:",
-		aumento: "(El aumento fue 8% lineal) ",
+		aumento: "(El aumento fue 10% lineal) ",
 		descuento: "Consultar descuento x cantidad",
 	},
 	{
@@ -35,9 +35,9 @@ const listas = [
 	{
 		codigo: 14,
 		descripcion: "LOCX",
-		mes2: "Julio",
+		mes2: "Agosto",
 		mes: "Ultima Actualización:",
-		aumento: "(El aumento fue: 9%)",
+		aumento: "(El aumento fue: 10%)",
 		descuento: "",
 	},
 	{

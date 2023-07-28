@@ -770,7 +770,7 @@ const getClientVouchers = (req, res) => {
 	var sql = `SELECT *
   FROM COMP_EMITIDOS
   WHERE CLIENTE='${clientId}'
-      AND (TIPO='FEA' OR TIPO='FCN' OR TIPO='FEB')
+      AND (TIPO='FEA' OR TIPO='FCN' OR TIPO='FEB' OR TIPO='CEA')
       AND FECHA >= DATEADD(DAY, -365, GETDATE())
 
   ORDER BY FECHA;`;
