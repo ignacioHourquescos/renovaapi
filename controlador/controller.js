@@ -722,7 +722,10 @@ const generalValidateUser = async (req, res) => {
 		});
 
 		console.log("CUIT", resultado.CUIT.toString());
-		if (password == resultado.CUIT.toString()) {
+		if (
+			password.replace(/[^0-9]/g, "") ==
+			resultado.CUIT.toString().replace(/[^0-9]/g, "")
+		) {
 			res.status(201).json({
 				status: 201,
 				type: "client",
