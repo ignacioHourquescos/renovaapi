@@ -18,9 +18,9 @@ const listas = [
 	{
 		codigo: 3,
 		descripcion: "VALVOLINE",
-		mes2: "Agosto",
+		mes2: "Agosto 2",
 		mes: "Ultima Actualización:",
-		aumento: "(El aumento fue 15%, salvo refrigerantes 18%)",
+		aumento: "(El aumento fue 22%)",
 		descuento: "",
 	},
 	{
@@ -43,9 +43,9 @@ const listas = [
 	{
 		codigo: 8,
 		descripcion: "RAMA",
-		mes2: "Junio",
+		mes2: "Agosto",
 		mes: "Ultima Actualización:",
-		aumento: "(El aumento fue: 5%)",
+		aumento: "(El aumento fue: 20%)",
 		descuento: "",
 	},
 ];
