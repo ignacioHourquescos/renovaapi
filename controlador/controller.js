@@ -5,6 +5,7 @@ const fetch = require("node-fetch");
 function obtenerListas(req, res) {
 	res.send(JSON.stringify(constantes.listas));
 }
+
 function obtenerListaDetalle(req, res) {
 	var id = req.params.id;
 	var sql =
@@ -18,7 +19,8 @@ function obtenerListaDetalle(req, res) {
 		id +
 		"and activo='S' \
       and i.lista_codi='2'\
-      AND ag.descrip_agru<>'AGRUPACION PRUEBA'\
+      and ag.descrip_agru<>'AGRUPACION PRUEBA'\
+      and ag.descrip_agru<>'OFERTAS FRAM'\
       order by r ASC, id ASC";
 
 	for (var i = 0; i < constantes.listas.length; i++) {
@@ -412,8 +414,26 @@ function obtenerStockArticulo(req, res) {
 function obtenerListadoArticulos(req, res) {
 	// var sql= "select a.cod_articulo as id,  a.descrip_arti as d, a.desc_adicional as da, a.FECHA_ULTIMO_MOV as fum, a.cant_stock as s,  a.precio_uni as p, um as UM, i.precio_vta as pr from articulos  a join listas_items i on a.cod_articulo=i.articulo WHERE ACTIVO='S' AND FECHA_ULTIMO_MOV IS NOT NULL ORDER BY FECHA_ULTIMO_MOV DESC;";
 
-	var sql =
-		"select a.cod_articulo as id, a.agru_1 as agru,  a.descrip_arti as d, a.desc_adicional as da, a.FECHA_ULTIMO_MOV as fum, a.cant_stock as s,  a.precio_uni as p, um as UM, i.precio_vta as pr from articulos  a join listas_items i on a.cod_articulo=i.articulo WHERE ACTIVO='S' AND i.lista_codi='2' ORDER BY id DESC;";
+	var sql = `SELECT
+    a.cod_articulo AS id,
+    a.agru_1 AS agru,
+    a.descrip_arti AS d,
+    a.desc_adicional AS da,
+    a.FECHA_ULTIMO_MOV AS fum,
+    a.cant_stock AS s,
+    a.precio_uni AS p,
+    a.um AS UM,
+    i.precio_vta AS pr
+FROM
+    articulos a
+JOIN
+    listas_items i ON a.cod_articulo = i.articulo
+WHERE
+    a.ACTIVO = 'S' AND
+    i.lista_codi = '2' AND
+    a.agru_1 <> 23
+ORDER BY
+    id DESC;`;
 
 	con.query(sql, function (error, resultado, fields) {
 		if (error) {
