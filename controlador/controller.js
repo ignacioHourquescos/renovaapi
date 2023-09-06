@@ -698,7 +698,8 @@ function obtenerArticulo(req, res) {
 
 const listadoClientes = (req, res) => {
 	var sql =
-		"select num_cliente as n, lugar_entrega as le, gln as t, razon as id from clientes";
+		"select num_cliente as n, lugar_entrega as le, gln as t, razon as id, GLN as observacionPedido from clientes";
+	// "select *GLN  from clientes";
 	con.query(sql, function (error, resultado, fields) {
 		if (error) {
 			console.log("Hubo un error en la consulta", error.message);
