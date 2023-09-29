@@ -764,7 +764,7 @@ const generalValidateUser = async (req, res) => {
 	let numCliente = req.body.numCliente;
 	console.log("PASSWORD", password);
 	console.log("NUM CLIENTE", numCliente);
-	const sql = `select RAZON, CUIT, NUM_CLIENTE, LUGAR_ENTREGA, LOCALIDAD, TELEFONO, PROVINCIA, DOMICILIO, CP from clientes where NUM_CLIENTE='${numCliente}';`;
+	const sql = `select RAZON, CUIT, NUM_CLIENTE, GLN, LUGAR_ENTREGA, LOCALIDAD, TELEFONO, PROVINCIA, DOMICILIO, CP from clientes where NUM_CLIENTE='${numCliente}';`;
 
 	try {
 		const resultado = await new Promise((resolve, reject) => {
@@ -792,6 +792,7 @@ const generalValidateUser = async (req, res) => {
 				city: resultado.LOCALIDAD,
 				phone: resultado.TELEFONO,
 				clientId: resultado.NUM_CLIENTE,
+				preference: resultado.GLN,
 			});
 		} else {
 			res.status(401).send("Invalid password");
