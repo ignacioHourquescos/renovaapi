@@ -10,7 +10,6 @@ var clientesRouter = require("./Routes/clientesRouter");
 
 var app = express();
 app.set("view engine");
-
 app.use(cors());
 
 app.use(
@@ -61,6 +60,7 @@ app.get("/listadoClientes", controller.listadoClientes);
 app.get("/comprobantesVencidos/:nroCliente", controller.comprobantesVencidos);
 app.get("/getClient/", controller.getClient);
 app.get("/getClientVouchers/", controller.getClientVouchers);
+app.get("/getSpecificArticle/", controller.getSpecificArticle);
 //app.use('/clientes' , clientesRouter);npo
 
 app.get("/ventasTotales/:id-:mes", (req, res, next) => {

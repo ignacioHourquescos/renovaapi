@@ -430,8 +430,7 @@ JOIN
     listas_items i ON a.cod_articulo = i.articulo
 WHERE
     a.ACTIVO = 'S' AND
-    i.lista_codi = '2' AND
-    a.agru_1 <> 23
+    i.lista_codi = '2' 
 ORDER BY
     id DESC;`;
 
@@ -723,6 +722,43 @@ const comprobantesVencidos = (req, res) => {
 	});
 };
 
+const getSpecificArticle = (req, res) => {
+	let article = req.query.article;
+	console.log(article);
+	var sql =
+		" SELECT \
+  a.cod_articulo AS id, \
+  a.descrip_arti AS d, \
+  i.precio_vta AS p, \
+  a.cant_stock AS s \
+FROM articulos a \
+JOIN listas_items i ON a.cod_articulo = i.articulo \
+WHERE a.cod_articulo = '" +
+		article +
+		"' \
+  AND a.activo = 'S' \
+  AND i.lista_codi = '2' \
+ORDER BY id ASC;";
+	// var sql = "SELECT * FROM articulos WHERE cod_articulo = '" + article + "'";
+
+	// var sql =
+	// "select * from articulos WHERE cod_articulo LIKE '%" +
+	// article +
+	// "%' OR DESCRIP_ARTI LIKE  '%" +
+	// article +
+	// "%' OR DESC_ADICIONAL LIKE  '%" +
+	// article +
+	// "%'";
+	con.query(sql, function (error, resultado, fields) {
+		if (error) {
+			console.log("Hubo un error en la consulta", error.message);
+			return res.status(500).send("Hubo un erroraaa en la consultaaa");
+		}
+		const filteredResult = console.log(resultado);
+		res.send(JSON.stringify(resultado.recordsets[0]));
+	});
+};
+
 const generalValidateUser = async (req, res) => {
 	let password = req.body.password;
 	let numCliente = req.body.numCliente;
@@ -843,4 +879,5 @@ module.exports = {
 	validateUser: validateUser,
 	getClient: getClient,
 	getClientVouchers: getClientVouchers,
+	getSpecificArticle: getSpecificArticle,
 };
