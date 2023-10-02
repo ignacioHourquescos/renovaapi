@@ -18,17 +18,17 @@ const listas = [
 	{
 		codigo: 3,
 		descripcion: "VALVOLINE",
-		mes2: "Agosto 2",
+		mes2: "OCtubre",
 		mes: "Ultima Actualización:",
-		aumento: "(El aumento fue 22%)",
+		aumento: "(Promedio 5%)",
 		descuento: "",
 	},
 	{
 		codigo: 316,
 		descripcion: "PETRONAS",
-		mes2: "Agosto 2",
+		mes2: "Octubre",
 		mes: "Ultima Actualización:",
-		aumento: "(El aumento fue 20% lineal)",
+		aumento: "(Promedio 10%)",
 		descuento: "",
 	},
 	// {"codigo":5,    "descripcion":"TOTAL",          "mes2":"Abril", "mes":"Ultima Actualización:",   "aumento":"(El aumento fue: 10%)",                "descuento":""},
@@ -43,9 +43,9 @@ const listas = [
 	{
 		codigo: 8,
 		descripcion: "RAMA",
-		mes2: "Agosto",
+		mes2: "Octubre",
 		mes: "Ultima Actualización:",
-		aumento: "(El aumento fue: 20%)",
+		aumento: "promedio 10%",
 		descuento: "",
 	},
 ];
