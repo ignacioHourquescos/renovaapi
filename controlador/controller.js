@@ -109,6 +109,57 @@ function stockNegativo(req, res) {
 	});
 }
 
+function inventoryByUM(req, res) {
+	var sql =
+		"select cod_articulo as id, descrip_arti as d, UM, cant_stock as s from articulos a, listas_items i where cant_stock<0 and a.cod_articulo=i.articulo and i.lista_codi='2' and activo='S'";
+	con.query(sql, function (error, resultado, fields) {
+		if (error) {
+			console.log("Hubo un error en la consulta sql", error.message);
+			return res.status(500).send("Hubo un error en la consulta");
+		}
+		var response = resultado.recordsets[0];
+		res.send(JSON.stringify(response));
+	});
+}
+
+function negativeStockByUm(req, res) {
+	var um = req.query.um;
+	var sql = `select cod_articulo as id, descrip_arti as d, UM, cant_stock as s from articulos a, listas_items i where cant_stock<0 and a.UM='${um}' and a.cod_articulo=i.articulo and i.lista_codi='2' and activo='S'`;
+	con.query(sql, function (error, resultado, fields) {
+		if (error) {
+			console.log("Hubo un error en la consulta sql", error.message);
+			return res.status(500).send("Hubo un error en la consulta");
+		}
+		var response = resultado.recordsets[0];
+		res.send(JSON.stringify(response));
+	});
+}
+
+function stockByUm(req, res) {
+	var um = req.query.um;
+	var sql = `SELECT
+  a.UM as id,
+  COUNT(*) AS total_items,
+  SUM(CASE WHEN cant_stock < 0 THEN 1 ELSE 0 END) AS negative_items
+FROM
+  articulos a
+JOIN
+  listas_items i ON a.cod_articulo = i.articulo
+WHERE
+  i.lista_codi = '2'
+  AND a.activo = 'S'
+GROUP BY
+  a.UM`;
+	con.query(sql, function (error, resultado, fields) {
+		if (error) {
+			console.log("Hubo un error en la consulta sql", error.message);
+			return res.status(500).send("Hubo un error en la consulta");
+		}
+		var response = resultado.recordsets[0];
+		res.send(JSON.stringify(response));
+	});
+}
+
 function obtenerStockCritico(req, res) {
 	var sqlComprobanteMespasado =
 		"select NUM, TIPO from comp_emitidos where FECHA >= getdate()-30 AND TIPO='FEA' ORDER BY NUM asc";
@@ -881,4 +932,5 @@ module.exports = {
 	getClient: getClient,
 	getClientVouchers: getClientVouchers,
 	getSpecificArticle: getSpecificArticle,
+	stockByUm: stockByUm,
 };
