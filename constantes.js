@@ -26,9 +26,9 @@ const listas = [
 	{
 		codigo: 316,
 		descripcion: "PETRONAS",
-		mes2: "Octubre",
+		mes2: "Noviembre",
 		mes: "Ultima Actualización:",
-		aumento: "(Promedio 10%)",
+		aumento: "(Promedio 20%)",
 		descuento: "",
 	},
 	// {"codigo":5,    "descripcion":"TOTAL",          "mes2":"Abril", "mes":"Ultima Actualización:",   "aumento":"(El aumento fue: 10%)",                "descuento":""},
