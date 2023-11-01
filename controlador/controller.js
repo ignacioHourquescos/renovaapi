@@ -134,6 +134,31 @@ function negativeStockByUm(req, res) {
 		res.send(JSON.stringify(response));
 	});
 }
+function detailedUm(req, res) {
+	var um = req.query.um; // Use req.params to get the value of 'um' from the URL parameters
+	console.log("UM", um);
+	var sql = `SELECT
+      a.UM as id,
+      COUNT(*) AS total_items,
+      SUM(CASE WHEN cant_stock < 0 THEN 1 ELSE 0 END) AS negative_items
+  FROM
+      articulos a
+  JOIN
+      listas_items i ON a.cod_articulo = i.articulo
+  WHERE
+      i.lista_codi='2'
+      AND a.activo='S'
+      AND a.UM='C11'`; // Add a WHERE clause to filter by the 'um' parameter
+
+	con.query(sql, [um], function (error, resultado, fields) {
+		if (error) {
+			console.log("Hubo un error en la consulta sql", error.message);
+			return res.status(500).send("Hubo un error en la consulta");
+		}
+		var response = resultado.recordsets[0];
+		res.send(JSON.stringify(response));
+	});
+}
 
 function stockByUm(req, res) {
 	var um = req.query.um;
@@ -933,4 +958,5 @@ module.exports = {
 	getClientVouchers: getClientVouchers,
 	getSpecificArticle: getSpecificArticle,
 	stockByUm: stockByUm,
+	detailedUm: detailedUm,
 };
