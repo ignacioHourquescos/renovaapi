@@ -4,7 +4,7 @@ const listas = [
 		descripcion: "FRAM",
 		mes2: "Noviembre",
 		mes: "Ultima Actualización:",
-		aumento: "(El aumento fue 20% lineal) ",
+		aumento: "(El aumento fue desparejo) ",
 		descuento: "Consultar descuento x cantidad",
 	},
 	{
