@@ -110,8 +110,8 @@ function stockNegativo(req, res) {
 }
 
 function inventoryByUM(req, res) {
-	var sql =
-		"select cod_articulo as id, descrip_arti as d, UM, cant_stock as s from articulos a, listas_items i where cant_stock<0 and a.cod_articulo=i.articulo and i.lista_codi='2' and activo='S'";
+	var um = req.params.um;
+	var sql = `select cod_articulo as id, descrip_arti as d, UM, cant_stock as s from articulos a, listas_items i where UM='${um}' and a.cod_articulo=i.articulo and i.lista_codi='2' and activo='S'`;
 	con.query(sql, function (error, resultado, fields) {
 		if (error) {
 			console.log("Hubo un error en la consulta sql", error.message);
@@ -959,4 +959,5 @@ module.exports = {
 	getSpecificArticle: getSpecificArticle,
 	stockByUm: stockByUm,
 	detailedUm: detailedUm,
+	inventoryByUM: inventoryByUM,
 };

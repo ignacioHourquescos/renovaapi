@@ -63,6 +63,7 @@ app.get("/getClientVouchers/", controller.getClientVouchers);
 app.get("/getSpecificArticle/", controller.getSpecificArticle);
 app.get("/stockByUm/", controller.stockByUm);
 app.get("/detailedUm/", controller.detailedUm);
+app.get("/inventoryByUM/:um", controller.inventoryByUM);
 //app.use('/clientes' , clientesRouter);npo
 
 app.get("/ventasTotales/:id-:mes", (req, res, next) => {
