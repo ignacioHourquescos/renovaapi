@@ -6,6 +6,7 @@ var bodyParser = require("body-parser");
 var path = require("path");
 var cors = require("cors");
 var controller = require("./controlador/controller");
+var controllerXref = require("./controlador/controller-xref");
 var clientesRouter = require("./Routes/clientesRouter");
 
 var app = express();
@@ -65,6 +66,8 @@ app.get("/stockByUm/", controller.stockByUm);
 app.get("/detailedUm/", controller.detailedUm);
 app.get("/inventoryByUM/:um", controller.inventoryByUM);
 //app.use('/clientes' , clientesRouter);npo
+
+app.get("/xref/:param", controllerXref.getXrefList);
 
 app.get("/ventasTotales/:id-:mes", (req, res, next) => {
 	var id = req.params.id;
