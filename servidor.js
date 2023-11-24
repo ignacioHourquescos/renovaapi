@@ -67,7 +67,8 @@ app.get("/detailedUm/", controller.detailedUm);
 app.get("/inventoryByUM/:um", controller.inventoryByUM);
 //app.use('/clientes' , clientesRouter);npo
 
-app.get("/xref/:param", controllerXref.getXrefList);
+app.get("/bot/xref/:param", controllerXref.getXrefList);
+app.get("/bot/getSpecificArticle", controllerXref.getSpecificArticle);
 
 app.get("/ventasTotales/:id-:mes", (req, res, next) => {
 	var id = req.params.id;
