@@ -7,8 +7,8 @@ function getXrefList(req, res) {
 	let API_KEY = "AIzaSyBf70CQRaHfuWQXBn66jNwB7Gh01L-yXrw";
 	let sheetName = "XREF";
 
-	let param = req.params.param; // Extract the parameter from the URL
-
+	// let param = req.params.param; // Extract the parameter from the URL
+	let article = req.query.article;
 	fetch(
 		`https://sheets.googleapis.com/v4/spreadsheets/${shareCode}/values/${sheetName}?alt=json&key=${API_KEY}`
 	)
@@ -22,7 +22,7 @@ function getXrefList(req, res) {
 				// Check if the parameter matches exactly
 				if (
 					data.values[i].some(
-						(value) => value.toLowerCase() === param.toLowerCase()
+						(value) => value.toLowerCase() === article.toLowerCase()
 					)
 				) {
 					array.push({
@@ -36,7 +36,7 @@ function getXrefList(req, res) {
 				} else {
 					// If not an exact match, calculate Levenshtein distance and convert to similarity score
 					let distances = data.values[i].map((value) =>
-						levenshtein.distance(param, value)
+						levenshtein.distance(article, value)
 					);
 					let minDistance = Math.min(...distances);
 
@@ -44,7 +44,7 @@ function getXrefList(req, res) {
 					if (minDistance <= 1.5) {
 						// Add only the codes that are similar
 						let similarCodes = data.values[i].filter((value) => {
-							return levenshtein.distance(param, value) <= 1.5;
+							return levenshtein.distance(article, value) <= 1.5;
 						});
 						suggestions.push(...similarCodes);
 					}
@@ -109,6 +109,8 @@ const getSpecificArticle = (req, res) => {
             AND ag.descrip_agru <> 'OFERTAS FRAM'
           ORDER BY r ASC, id ASC;`;
 
+		// ...
+
 		con.query(sqlSimilar, function (error, similarResult, fields) {
 			if (error) {
 				console.log(
@@ -118,9 +120,20 @@ const getSpecificArticle = (req, res) => {
 				return res.status(500).send("Hubo un error en la consulta");
 			}
 
-			// Send the result of the similar match
-			res.send(JSON.stringify(similarResult));
+			// Extract and send only the relevant data from the first recordset
+			const responseData =
+				similarResult &&
+				similarResult.recordsets &&
+				similarResult.recordsets[0];
+
+			if (responseData && responseData.length > 0) {
+				res.send(JSON.stringify(responseData));
+			} else {
+				res.send(JSON.stringify([])); // Send an empty array if no results found
+			}
 		});
+
+		// Send the result of the similar match
 	});
 };
 
