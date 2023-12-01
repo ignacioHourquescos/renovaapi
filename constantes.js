@@ -2,9 +2,9 @@ const listas = [
 	{
 		codigo: 1,
 		descripcion: "FRAM",
-		mes2: "Noviembre (segundo aumento)",
+		mes2: "Diciembre",
 		mes: "Ultima Actualización:",
-		aumento: "Aumento 15% ",
+		aumento: "Aumento 8% ",
 		descuento: "Consultar descuento x cantidad",
 	},
 	{
@@ -18,9 +18,9 @@ const listas = [
 	{
 		codigo: 3,
 		descripcion: "VALVOLINE",
-		mes2: "Noviembre",
+		mes2: "Diciembre",
 		mes: "Ultima Actualización:",
-		aumento: "(desparejo)",
+		aumento: "20%",
 		descuento: "",
 	},
 	{
@@ -43,17 +43,17 @@ const listas = [
 	{
 		codigo: 27,
 		descripcion: "PUMA",
-		mes2: "Noviembre",
+		mes2: "Diciembre",
 		mes: "Ultima Actualización:",
-		aumento: "(El aumento fue: 20%)",
+		aumento: "(lineal 20%)",
 		descuento: "",
 	},
 	{
 		codigo: 8,
 		descripcion: "RAMA",
-		mes2: "Octubre",
+		mes2: "Diciembre",
 		mes: "Ultima Actualización:",
-		aumento: "promedio 10%",
+		aumento: "promedio 17%",
 		descuento: "",
 	},
 ];
