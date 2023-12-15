@@ -8,6 +8,7 @@ var cors = require("cors");
 var controller = require("./controlador/controller");
 var controllerXref = require("./controlador/controller-xref");
 var clientesRouter = require("./Routes/clientesRouter");
+const cobranzas = require("./controlador/cobranzas");
 
 var app = express();
 app.set("view engine");
@@ -28,6 +29,8 @@ app.use(express.static(path.join(__dirname, "views")));
 
 //app.get('/', function (req, res)            {res.sendFile(path.join(__dirname + '/views/html/index.html'));});
 //app.get('/faq', function (req, res)         {res.sendFile(path.join(__dirname + '/views/html/faq.html'));})
+
+// prettier-ignore
 app.get("/listas", controller.obtenerListas);
 app.get("/listas/:id", controller.obtenerListaDetalle);
 app.get("/ofertasFram", controller.obtenerOfertasFram);
@@ -58,7 +61,11 @@ app.get("/obtenerArticulo/:id", controller.obtenerArticulo);
 app.get("/obtenerListadoArticulos", controller.obtenerListadoArticulos);
 app.get("/ofertasPuma", controller.ofertasPuma);
 app.get("/listadoClientes", controller.listadoClientes);
-app.get("/comprobantesVencidos/:nroCliente", controller.comprobantesVencidos);
+app.get(
+	"/comprobantesVencidos/:nroCliente",
+	cobranzas.comprobantesVencidosPorCliente
+);
+app.get("/comprobantesVencidos", cobranzas.comprobantesVencidos);
 app.get("/getClient/", controller.getClient);
 app.get("/getClientVouchers/", controller.getClientVouchers);
 app.get("/getSpecificArticle/", controller.getSpecificArticle);
