@@ -7,14 +7,14 @@ const listas = [
 		aumento: " 35% ",
 		descuento: "Consultar descuento x cantidad",
 	},
-	// {
-	// 	codigo: 12,
-	// 	descripcion: "MOTUL",
-	// 	mes2: "Noviembre",
-	// 	mes: "Ultima Actualización:",
-	// 	aumento: "(El aumento fue 20% lineal)",
-	// 	descuento: "",
-	// },
+	{
+		codigo: 12,
+		descripcion: "MOTUL",
+		mes2: "20 de Diciembre",
+		mes: "Ultima Actualización:",
+		aumento: "55%",
+		descuento: "",
+	},
 	{
 		codigo: 3,
 		descripcion: "VALVOLINE",
