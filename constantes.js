@@ -31,7 +31,14 @@ const listas = [
 		aumento: "Promedio 80%",
 		descuento: "",
 	},
-	// {"codigo":5,    "descripcion":"TOTAL",          "mes2":"Abril", "mes":"Ultima Actualización:",   "aumento":"(El aumento fue: 10%)",                "descuento":""},
+	{
+		codigo: 5,
+		descripcion: "TOTAL",
+		mes2: "Abril",
+		mes: "Ultima Actualización:",
+		aumento: "(El aumento fue: 10%)",
+		descuento: "",
+	},
 	{
 		codigo: 14,
 		descripcion: "LOCX",
