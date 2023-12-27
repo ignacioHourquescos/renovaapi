@@ -47,14 +47,14 @@ const listas = [
 		aumento: "40%",
 		descuento: "",
 	},
-	// {
-	// 	codigo: 27,
-	// 	descripcion: "PUMA",
-	// 	mes2: "15 de Diciembre",
-	// 	mes: "Ultima Actualización:",
-	// 	aumento: "55%",
-	// 	descuento: "",
-	// },
+	{
+		codigo: 27,
+		descripcion: "PUMA",
+		mes2: "15 de Diciembre",
+		mes: "Ultima Actualización:",
+		aumento: "55%",
+		descuento: "",
+	},
 	{
 		codigo: 8,
 		descripcion: "RAMA",
