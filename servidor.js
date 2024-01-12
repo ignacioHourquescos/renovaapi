@@ -7,6 +7,7 @@ var path = require("path");
 var cors = require("cors");
 var controller = require("./controlador/controller");
 var controllerXref = require("./controlador/controller-xref");
+var controllerBot = require("./controlador/controller-bot");
 var clientesRouter = require("./Routes/clientesRouter");
 const cobranzas = require("./controlador/cobranzas");
 
@@ -73,9 +74,6 @@ app.get("/stockByUm/", controller.stockByUm);
 app.get("/detailedUm/", controller.detailedUm);
 app.get("/inventoryByUM/:um", controller.inventoryByUM);
 //app.use('/clientes' , clientesRouter);npo
-
-app.get("/bot/xref", controllerXref.getXrefList);
-app.get("/bot/getSpecificArticle", controllerXref.getSpecificArticle);
 
 app.get("/ventasTotales/:id-:mes", (req, res, next) => {
 	var id = req.params.id;
@@ -164,6 +162,14 @@ app.get("/ventasTotalesGeneral/:mes", (req, res, next) => {
 		res.send(JSON.stringify(consolidatedData));
 	});
 });
+
+///////////////// -B - O - T ////////////////////
+app.get("/bot/xref", controllerXref.getXrefList);
+app.get("/bot/getSpecificArticle", controllerXref.getSpecificArticle);
+app.get(
+	"/bot/comprobantesVencidos/:nroCliente",
+	controllerBot.comprobantesVencidosPorCliente
+);
 
 //Auxiliar functions
 function daysInMonth(month, year) {
