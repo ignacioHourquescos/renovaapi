@@ -165,7 +165,7 @@ app.get("/ventasTotalesGeneral/:mes", (req, res, next) => {
 
 ///////////////// -B - O - T ////////////////////
 app.get("/bot/xref", controllerXref.getXrefList);
-app.get("/bot/getSku", controllerXref.getSpecificArticle);
+app.get("/bot/getSpecificArticle", controllerXref.getSpecificArticle);
 app.get("/bot/getBalance", controllerBot.comprobantesVencidosPorCliente);
 
 //Auxiliar functions
