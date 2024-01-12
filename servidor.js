@@ -167,6 +167,10 @@ app.get("/ventasTotalesGeneral/:mes", (req, res, next) => {
 app.get("/bot/xref", controllerXref.getXrefList);
 app.get("/bot/getSpecificArticle", controllerXref.getSpecificArticle);
 app.get("/bot/getBalance", controllerBot.comprobantesVencidosPorCliente);
+app.get(
+	"/bot/getClientNumberByPhoneNumber",
+	controllerBot.getClientNumberByPhoneNumber
+);
 
 //Auxiliar functions
 function daysInMonth(month, year) {
