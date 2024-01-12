@@ -26,13 +26,13 @@ const comprobantesVencidosPorCliente = (req, res) => {
 const getClientNumberByPhoneNumber = (req, res) => {
 	let phoneNumber = req.query.phoneNumber;
 
-	const sqlClient = `SELECT NUM_CLIENTE FROM CLIENTES WHERE TELEFONO='${phoneNumber}'`;
+	const sqlClient = `SELECT NUM_CLIENTE, RAZON, TELEFONO FROM CLIENTES WHERE TELEFONO='${phoneNumber}'`;
 	con.query(sqlClient, function (error, resultado, fields) {
 		if (error) {
 			console.log("Hubo un error en la consulta", error.message);
 			return res.status(500).send("Hubo un error en la consulta");
 		} else {
-			const clientNumber = resultado.recordsets[0][0]?.NUM_CLIENTE;
+			const clientNumber = resultado.recordsets[0][0];
 			res.json(clientNumber);
 		}
 	});
