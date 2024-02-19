@@ -17,7 +17,7 @@ const comprobantesVencidosPorCliente = (req, res) => {
 					console.log("Hubo un error en la consulta", error.message);
 					return res.status(500).send("Hubo un error en la consulta");
 				}
-				res.json(resultado.recordsets[0][0]);
+				res.json(resultado.recordsets[0]);
 			});
 		}
 	});
