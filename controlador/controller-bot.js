@@ -11,7 +11,14 @@ const comprobantesVencidosPorCliente = (req, res) => {
 			return res.status(500).send("Hubo un error en la consulta");
 		} else {
 			const clientNumber = resultado.recordsets[0][0]?.NUM_CLIENTE;
-			var sqlGetBalance = `SELECT NUM, TIPO, FECHA, CLIENTE, TOTAL FROM COMP_EMITIDOS WHERE ESTADO='PEN' AND CLIENTE=${clientNumber} AND (TIPO='FEA' OR TIPO='FCN' OR TIPO='FEB') ORDER BY FECHA`;
+			var sqlGetBalance = `SELECT NUM, TIPO, FECHA, CLIENTE, TOTAL 
+      FROM COMP_EMITIDOS 
+      WHERE ESTADO='PEN' 
+      AND CLIENTE=${clientNumber} 
+      AND (
+            TIPO IN ('FEA', 'FCN', 'FEB', 'CEA', 'CPM', 'CNN', 'CEA', 'CPM', 'FEB', 'BEA', 'FCN', 'CNA', 'BEB', 'CNB', 'CNN', 'BN')
+          ) 
+      ORDER BY FECHA`;
 			con.query(sqlGetBalance, function (error, resultado, fields) {
 				if (error) {
 					console.log("Hubo un error en la consulta", error.message);
