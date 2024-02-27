@@ -10,9 +10,9 @@ const listas = [
 	{
 		codigo: 12,
 		descripcion: "MOTUL",
-		mes2: "20 de Diciembre",
+		mes2: "01 de Febrero",
 		mes: "Ultima Actualización:",
-		aumento: "55%",
+		aumento: "12%",
 		descuento: "",
 	},
 	{
