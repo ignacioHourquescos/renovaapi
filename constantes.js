@@ -2,7 +2,7 @@ const listas = [
 	{
 		codigo: 1,
 		descripcion: "FRAM",
-		mes2: "04 de Febrero",
+		mes2: "04 de Marzo",
 		mes: "Ultima Actualización:",
 		aumento: " 10% ",
 		descuento: "Consultar descuento x cantidad",
@@ -10,7 +10,7 @@ const listas = [
 	{
 		codigo: 12,
 		descripcion: "MOTUL",
-		mes2: "01 de Febrero",
+		mes2: "01 de Marzo",
 		mes: "Ultima Actualización",
 		aumento: "12%",
 		descuento: "",
@@ -26,7 +26,7 @@ const listas = [
 	{
 		codigo: 316,
 		descripcion: "PETRONAS",
-		mes2: "06 de Febrero",
+		mes2: "06 de Marzo",
 		mes: "Ultima Actualización:",
 		aumento: "Hasta un 5%",
 		descuento: "",
@@ -58,7 +58,7 @@ const listas = [
 	{
 		codigo: 8,
 		descripcion: "RAMA",
-		mes2: "1 de Diciembre",
+		mes2: "01 de Marzo",
 		mes: "Ultima Actualización:",
 		aumento: "17%",
 		descuento: "",
