@@ -18,9 +18,9 @@ const listas = [
 	{
 		codigo: 3,
 		descripcion: "VALVOLINE",
-		mes2: "15 de Diciembre",
+		mes2: "05 de Abril",
 		mes: "Ultima Actualización:",
-		aumento: "60%",
+		aumento: "8%",
 		descuento: "",
 	},
 	{
