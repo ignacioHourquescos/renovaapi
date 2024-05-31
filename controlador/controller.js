@@ -31,7 +31,7 @@ function obtenerListaDetalle(req, res) {
 	}
 	con.query(sql, function (error, resultado, fields) {
 		if (error) {
-			console.log(sql);
+			console.log(error);
 			console.log("Hubo un error en la consulta", error.message);
 			console.log(error.message);
 			return res.status(500).send("Hubo un error en la consulta");
