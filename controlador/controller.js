@@ -33,6 +33,7 @@ function obtenerListaDetalle(req, res) {
 		if (error) {
 			console.log(sql);
 			console.log("Hubo un error en la consulta", error.message);
+			console.log(error.message);
 			return res.status(500).send("Hubo un error en la consulta");
 		}
 		var response = {
