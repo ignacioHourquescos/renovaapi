@@ -488,6 +488,59 @@ function obtenerStockArticulo(req, res) {
 	});
 }
 
+function obtenerListadoArticulosPorLista(req, res) {
+	var sql = `
+    SELECT
+        a.cod_articulo AS id,
+        a.agru_1 AS agru,
+        a.descrip_arti AS d,
+        a.desc_adicional AS da,
+        a.FECHA_ULTIMO_MOV AS fum,
+        a.cant_stock AS s,
+        a.precio_uni AS p,
+        a.um AS UM,
+        i.lista_codi AS lista,
+        i.precio_vta AS pr
+    FROM
+        articulos a
+    JOIN
+        listas_items i ON a.cod_articulo = i.articulo
+    WHERE
+        a.ACTIVO = 'S' AND
+        a.FECHA_ULTIMO_MOV IS NOT NULL
+    ORDER BY
+        a.cod_articulo, i.lista_codi;
+    `;
+
+	con.query(sql, function (error, resultado, fields) {
+		if (error) {
+			console.log("Hubo un error en la consulta", error.message);
+			return res.status(500).send("Hubo un error en la consulta");
+		}
+
+		// Procesar los resultados para agrupar precios por artículo
+		const articulos = {};
+		resultado.forEach((row) => {
+			if (!articulos[row.id]) {
+				articulos[row.id] = {
+					id: row.id,
+					agru: row.agru,
+					d: row.d,
+					da: row.da,
+					fum: row.fum,
+					s: row.s,
+					p: row.p,
+					UM: row.UM,
+					precios: {},
+				};
+			}
+			articulos[row.id].precios[row.lista] = row.pr;
+		});
+
+		res.send(JSON.stringify(Object.values(articulos)));
+	});
+}
+
 function obtenerListadoArticulos(req, res) {
 	// var sql= "select a.cod_articulo as id,  a.descrip_arti as d, a.desc_adicional as da, a.FECHA_ULTIMO_MOV as fum, a.cant_stock as s,  a.precio_uni as p, um as UM, i.precio_vta as pr from articulos  a join listas_items i on a.cod_articulo=i.articulo WHERE ACTIVO='S' AND FECHA_ULTIMO_MOV IS NOT NULL ORDER BY FECHA_ULTIMO_MOV DESC;";
 
@@ -961,4 +1014,5 @@ module.exports = {
 	stockByUm: stockByUm,
 	detailedUm: detailedUm,
 	inventoryByUM: inventoryByUM,
+	obtenerListadoArticulosPorLista: obtenerListadoArticulosPorLista,
 };

@@ -2,9 +2,9 @@ const listas = [
 	{
 		codigo: 1,
 		descripcion: "FRAM",
-		mes2: "04 de Marzo",
+		mes2: "06 de Junio",
 		mes: "Ultima Actualización:",
-		aumento: " 10% ",
+		aumento: " Aumentos variables en importados ",
 		descuento: "Consultar descuento x cantidad",
 	},
 	{
@@ -26,9 +26,9 @@ const listas = [
 	{
 		codigo: 316,
 		descripcion: "PETRONAS",
-		mes2: "06 de Marzo",
+		mes2: "10 de Junio",
 		mes: "Ultima Actualización:",
-		aumento: "Hasta un 5%",
+		aumento: "Subas y bajas desaprejas",
 		descuento: "",
 	},
 	{
