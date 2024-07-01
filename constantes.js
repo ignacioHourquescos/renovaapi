@@ -2,9 +2,9 @@ const listas = [
 	{
 		codigo: 1,
 		descripcion: "FRAM",
-		mes2: "06 de Junio",
+		mes2: "01 de Julio",
 		mes: "Ultima Actualización:",
-		aumento: " Aumentos variables en importados ",
+		aumento: " 6% lineal",
 		descuento: "Consultar descuento x cantidad",
 	},
 	{
