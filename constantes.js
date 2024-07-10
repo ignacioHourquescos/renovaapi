@@ -58,9 +58,9 @@ const listas = [
 	{
 		codigo: 8,
 		descripcion: "RAMA",
-		mes2: "01 de Marzo",
+		mes2: "10 de Julio",
 		mes: "Ultima Actualización:",
-		aumento: "17%",
+		aumento: "15%",
 		descuento: "",
 	},
 ];
