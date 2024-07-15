@@ -10,9 +10,9 @@ const listas = [
 	{
 		codigo: 12,
 		descripcion: "MOTUL",
-		mes2: "01 de Marzo",
+		mes2: "15 de Julio",
 		mes: "Ultima Actualización",
-		aumento: "12%",
+		aumento: "Motor 5% aproximado. Articulos restantes desparejo",
 		descuento: "",
 	},
 	{
@@ -23,14 +23,14 @@ const listas = [
 		aumento: "8%",
 		descuento: "",
 	},
-	{
-		codigo: 316,
-		descripcion: "PETRONAS",
-		mes2: "10 de Junio",
-		mes: "Ultima Actualización:",
-		aumento: "Subas y bajas desaprejas",
-		descuento: "",
-	},
+	// {
+	// 	codigo: 316,
+	// 	descripcion: "PETRONAS",
+	// 	mes2: "10 de Junio",
+	// 	mes: "Ultima Actualización:",
+	// 	aumento: "Subas y bajas desaprejas",
+	// 	descuento: "",
+	// },
 	{
 		codigo: 5,
 		descripcion: "TOTAL",
