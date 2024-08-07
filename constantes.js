@@ -4,7 +4,7 @@ const listas = [
 		descripcion: "FRAM",
 		mes2: "",
 		mes: "",
-		aumento: "%",
+		aumento: "",
 		descuento: "",
 	},
 	{
@@ -12,7 +12,7 @@ const listas = [
 		descripcion: "MOTUL",
 		mes2: "",
 		mes: "",
-		aumento: "%",
+		aumento: "",
 		descuento: "",
 	},
 	{
@@ -20,7 +20,7 @@ const listas = [
 		descripcion: "VALVOLINE",
 		mes2: "",
 		mes: "",
-		aumento: "%",
+		aumento: "",
 		descuento: "",
 	},
 	// {
@@ -36,7 +36,7 @@ const listas = [
 		descripcion: "TOTAL",
 		mes2: "",
 		mes: "",
-		aumento: "%",
+		aumento: "",
 		descuento: "",
 	},
 	{
@@ -44,7 +44,7 @@ const listas = [
 		descripcion: "LOCX",
 		mes2: "",
 		mes: "",
-		aumento: "%",
+		aumento: "",
 		descuento: "",
 	},
 	{
@@ -52,7 +52,7 @@ const listas = [
 		descripcion: "PUMA",
 		mes2: "",
 		mes: "",
-		aumento: "%",
+		aumento: "",
 		descuento: "",
 	},
 	{
@@ -60,7 +60,7 @@ const listas = [
 		descripcion: "RAMA",
 		mes2: "",
 		mes: "",
-		aumento: "%",
+		aumento: "",
 		descuento: "",
 	},
 ];
