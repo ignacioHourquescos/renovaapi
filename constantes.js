@@ -39,14 +39,14 @@ const listas = [
 		aumento: "",
 		descuento: "",
 	},
-	// {
-	// 	codigo: 14,
-	// 	descripcion: "LOCX",
-	// 	mes2: "Agosto",
-	// 	mes: "Ultima Actualización:",
-	// 	aumento: "",
-	// 	descuento: "",
-	// },
+	{
+		codigo: 14,
+		descripcion: "LOCX",
+		mes2: "AGOSTO",
+		mes: "Ultima actualización AGOSTO: desparejo",
+		aumento: "",
+		descuento: "",
+	},
 	{
 		codigo: 27,
 		descripcion: "PUMA",
