@@ -805,21 +805,6 @@ function ultimasVentas(req, res) {
 	});
 }
 
-function clientDetailByName(req, res) {
-	var clientName = req.query.clientName;
-	console.log(clientName);
-
-	let sql = `select RAZON, CUIT, TELEFONO, LUGAR_ENTREGA, LOCALIDAD, PROVINCIA, DOMICILIO, CP from clientes where RAZON='${clientName}';`;
-
-	con.query(sql, function (error, resultado, fields) {
-		if (error) {
-			console.log("Hubo un error en la consulta", error.message);
-			return res.status(500).send("Hubo un erroraaa en la consulta");
-		}
-		console.log(resultado);
-		res.send(JSON.stringify(resultado.recordsets[0]));
-	});
-}
 function obtenerArticulo(req, res) {
 	var id = req.params.id;
 	var sql =
@@ -850,18 +835,7 @@ const listadoClientes = (req, res) => {
 			return res.status(500).send("Hubo un erroraaa en la consulta");
 		}
 		console.log(resultado);
-		res.status(201).json({
-			status: 201,
-			type: "client",
-			name: resultado.RAZON,
-			fiscalValue: resultado.CUIT,
-			address: resultado?.DOMICILIO,
-			city: resultado.LOCALIDAD,
-			phone: resultado.TELEFONO,
-			clientId: resultado.NUM_CLIENTE,
-			preference: resultado.GLN,
-		});
-		// res.send(JSON.stringify(resultado.recordsets[0]));
+		res.send(JSON.stringify(resultado.recordsets[0]));
 	});
 };
 
@@ -1041,5 +1015,4 @@ module.exports = {
 	detailedUm: detailedUm,
 	inventoryByUM: inventoryByUM,
 	obtenerListadoArticulosPorLista: obtenerListadoArticulosPorLista,
-	clientDetailByName: clientDetailByName,
 };

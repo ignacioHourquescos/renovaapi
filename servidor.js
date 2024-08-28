@@ -77,8 +77,7 @@ app.get(
 	"/obtenerListadoArticulosPorLista",
 	controller.obtenerListadoArticulosPorLista
 );
-//app.use('/clientes' , clientesRouter);npo
-app.get("/clientDetailByName", controller.clientDetailByName);
+//app.use('/clientes' , clientesRouter);npoz
 
 app.get("/ventasTotales/:id-:mes", (req, res, next) => {
 	var id = req.params.id;
