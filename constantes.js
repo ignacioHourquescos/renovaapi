@@ -2,15 +2,15 @@ const listas = [
 	{
 		codigo: 1,
 		descripcion: "FRAM",
-		mes2: "AGOSTO",
+		mes2: "SEPTIEMBRE",
 		mes: "Lista Vigente:",
-		aumento: "Ultima actualización JUNIO: 6% lineal",
+		aumento: "Ultima actualización Septiembre: 5% lineal",
 		descuento: "Consultar descuento x cantidad",
 	},
 	{
 		codigo: 12,
 		descripcion: "MOTUL",
-		mes2: "AGOSTO",
+		mes2: "SEPTIEMBRE",
 		mes: "Lista Vigente:",
 		aumento: "Ultima actualización JULIO: 5% lineal",
 		descuento: "",
@@ -18,7 +18,7 @@ const listas = [
 	{
 		codigo: 3,
 		descripcion: "VALVOLINE",
-		mes2: "AGOSTO",
+		mes2: "SEPTIEMBRE",
 		mes: "Lista Vigente:",
 		aumento: "Ultima actualización JULIO: 5% lineal",
 		descuento: "",
@@ -34,7 +34,7 @@ const listas = [
 	{
 		codigo: 5,
 		descripcion: "TOTAL",
-		mes2: "AGOSTO",
+		mes2: "SEPTIEMBRE",
 		mes: "Lista Vigente:",
 		aumento: "",
 		descuento: "",
@@ -42,7 +42,7 @@ const listas = [
 	{
 		codigo: 14,
 		descripcion: "LOCX",
-		mes2: "AGOSTO",
+		mes2: "SEPTIEMBRE",
 		mes: "Lista Vigente:",
 		aumento: "Ultima actualización AGOSTO: desparejo",
 		descuento: "",
@@ -50,7 +50,7 @@ const listas = [
 	{
 		codigo: 27,
 		descripcion: "PUMA",
-		mes2: "AGOSTO",
+		mes2: "SEPTIEMBRE",
 		mes: "Lista Vigente:",
 		aumento: "Ultima actualización JULIO: 4% NO lineal",
 		descuento: "",
@@ -58,7 +58,7 @@ const listas = [
 	{
 		codigo: 8,
 		descripcion: "RAMA",
-		mes2: "AGOSTO",
+		mes2: "SEPTIEMBRE",
 		mes: "Lista Vigente:",
 		aumento: "Ultima actualización AGOSTO: 10% NO lineal",
 		descuento: "",
