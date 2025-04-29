@@ -1,7 +1,7 @@
 const listas = [
 	{
 		codigo: 1,
-		descripcion: "FRAM",
+		descripcion: "FRAM.",
 		mes2: "SEPTIEMBRE",
 		mes: "Lista Vigente:",
 		aumento: "Ultima actualización Septiembre: 5% lineal",
